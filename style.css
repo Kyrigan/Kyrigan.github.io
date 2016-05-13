@@ -1,0 +1,358 @@
+@charset "UTF-8";
+
+
+.toprow {margin:12.5rem 0 0 1.5rem;}
+.headline {color:#444;font-family:Oswald;line-height:38px;margin-bottom:120px;}
+.about{padding-left:1.5rem;font-size:1.6rem}
+.work{padding-left:1.5rem;font-size:1.6rem}
+.workdetail{padding-left:1.5rem;text-align:center;}
+.wdpadding{margin:3rem 0 0 0;}
+.sansserif{font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;color:#fff;font-size:11px;  font-weight: 400;
+    letter-spacing: .1rem;}
+.copyright{padding:1.7rem 0 0 4rem;}
+.rescont {font-size:1.8rem;line-height:32px;padding-left:1.5rem;}
+.contactpad{padding-left:1.5rem;margin-left:0;margin-top:10rem;}
+.email{margin-top:2.7rem;padding-left:1.5em;}
+.email2{font-size:1.8rem;margin-top:.4rem;padding-left:1.5rem;margin-left:0;}
+.tel{margin-top:3rem;padding-left:1.5em;}
+.tel2{font-size:1.8rem;margin-top:.1rem;padding-left:1.5rem;margin-left:0;}
+.social{margin-top:3rem;padding-left:1.5em;}
+.linkedin{font-size:1.8rem;margin-top:.8rem;background:url(images/linkedin.png) no-repeat left;padding-left:3rem;margin-left:1.5rem;}
+.twitter{font-size:1.8rem;margin-top:.9rem;background:url(images/twitter.png) no-repeat left;padding-left:3rem;margin-left:1.5rem;}
+
+.footer{font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;color:#4e4e4e;
+        font-size:1.1rem;padding-bottom:4rem;padding-left:1.5rem;margin-top:10rem;}
+
+.button{margin-left:1.5rem;}
+.padright{padding-right:0;}
+.padleft{padding-left:0;}
+.padright2{padding-right:0;}
+
+/* Misc
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+hr {
+    border-width: 0;
+    border-top:1px solid #d4d4d4;margin-left:1.5rem;margin-top:7rem;margin-bottom:5rem;}
+
+/* Grid
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 880px;
+    margin: 0;
+    padding: 0 20px;
+    box-sizing: border-box; }
+.column,
+.columns {
+    width: 100%;
+    float: left;
+    box-sizing: border-box; }
+
+/* For devices larger than 400px */
+@media (min-width: 400px) {
+    .container {
+        width: 85%;
+        padding: 0; }
+}
+
+/* For devices larger than 550px */
+@media (min-width: 550px) {
+    .toprow {margin:16rem 0 0 7.5rem;}
+    .nav {font-size:1.8rem;}
+    .headline {font-size:9.0rem;line-height:44px;padding:20rem 0 7.5rem 7.5rem;}
+    .about {font-size:1.8rem;line-height:32px;padding-left:7.5rem;}
+    .work {font-size:1.8rem;line-height:32px;padding-left:7.5rem;}
+    .rescont {font-size:1.8rem;line-height:32px;padding-left:7.5rem;}
+    .workdetail {padding-left:7.5rem;padding-top:6rem;font-size:1.6rem;text-align:left;}
+    .wdpadding{margin:0;}
+    .footer{padding-left:3.5rem;margin-top:20rem;}
+    .button{margin-left:7.5rem;}
+    .contactpad{padding-left:0;margin-left:0;margin-top:2rem;}
+    .email{margin-top:2.7rem;padding-left:0;}
+    .email2{padding-left:0;}
+    .tel{padding-left:0;}
+    .tel2{padding-left:0;}
+    .social{margin-top:10.1rem;padding-left:0;}
+    .linkedin{margin-left:0;}
+    .twitter{margin-left:0;}
+
+    hr {margin-left:7.5rem;}
+    .padright{padding-right:1em;}
+    .padleft{padding-left:1em;}
+    .padright2{padding-right:2em;}
+
+
+    .container {
+        width: 80%; }
+    .column,
+    .columns {
+        margin-left: 4%; }
+    .column:first-child,
+    .columns:first-child {
+        margin-left: 0; }
+
+    .one.column,
+    .one.columns                    { width: 4.66666666667%; }
+    .two.columns                    { width: 13.3333333333%; }
+    .three.columns                  { width: 22%;            }
+    .four.columns                   { width: 30.6666666667%; }
+    .five.columns                   { width: 39.3333333333%; }
+    .six.columns                    { width: 48%;            }
+    .seven.columns                  { width: 56.6666666667%; }
+    .eight.columns                  { width: 65.3333333333%; }
+    .nine.columns                   { width: 74.0%;          }
+    .ten.columns                    { width: 82.6666666667%; }
+    .eleven.columns                 { width: 91.3333333333%; }
+    .twelve.columns                 { width: 100%; margin-left: 0; }
+
+    .one-third.column               { width: 30.6666666667%; }
+    .two-thirds.column              { width: 65.3333333333%; }
+
+    .one-half.column                { width: 48%; }
+
+    /* Offsets */
+    .offset-by-one.column,
+    .offset-by-one.columns          { margin-left: 8.66666666667%; }
+    .offset-by-two.column,
+    .offset-by-two.columns          { margin-left: 17.3333333333%; }
+    .offset-by-three.column,
+    .offset-by-three.columns        { margin-left: 26%;            }
+    .offset-by-four.column,
+    .offset-by-four.columns         { margin-left: 34.6666666667%; }
+    .offset-by-five.column,
+    .offset-by-five.columns         { margin-left: 43.3333333333%; }
+    .offset-by-six.column,
+    .offset-by-six.columns          { margin-left: 52%;            }
+    .offset-by-seven.column,
+    .offset-by-seven.columns        { margin-left: 60.6666666667%; }
+    .offset-by-eight.column,
+    .offset-by-eight.columns        { margin-left: 69.3333333333%; }
+    .offset-by-nine.column,
+    .offset-by-nine.columns         { margin-left: 78.0%;          }
+    .offset-by-ten.column,
+    .offset-by-ten.columns          { margin-left: 86.6666666667%; }
+    .offset-by-eleven.column,
+    .offset-by-eleven.columns       { margin-left: 95.3333333333%; }
+
+    .offset-by-one-third.column,
+    .offset-by-one-third.columns    { margin-left: 34.6666666667%; }
+    .offset-by-two-thirds.column,
+    .offset-by-two-thirds.columns   { margin-left: 69.3333333333%; }
+
+    .offset-by-one-half.column,
+    .offset-by-one-half.columns     { margin-left: 52%; }
+
+}
+
+
+
+/* Base Styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* NOTE
+html is set to 62.5% so that all the REM measurements throughout Skeleton
+are based on 10px sizing. So basically 1.5rem = 15px :) */
+
+html {
+    font-size: 62.5%; }
+
+body {
+    font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+    line-height: 1.6;
+    font-weight: 400;;
+    color: #666666;
+    background-color:#ffffff;
+    }
+
+/* Navigation
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+nav {
+    width: 100%;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    background: #fff;
+    border: none;
+    font-size: 2em;
+    margin-bottom: 8em;
+}
+
+nav ul {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    list-style: none;
+    float: left;
+    text-align: center;
+    width: 25%; /* fallback for non-calc() browsers */
+    width: calc(100% / 4);
+    box-sizing: border-box;
+}
+
+nav ul li:first-child {
+    border-left: none;
+}
+
+
+nav ul li a {
+    display: block;
+    text-decoration: none;
+    color: #616161;
+    padding: 10px 0;
+}
+
+/* Typography
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 200; }
+h1 { font-size: 4.0rem; line-height: 1.2;}
+h2 { font-size: 3.6rem; line-height: 1.25;}
+h3 { font-size: 3.0rem; color:#333; margin-left:1.5rem;font-family: 'Oswald', sans-serif;}
+h4 { font-size: 2.4rem; line-height: 1.35;}
+h5 { font-size: 2rem; color:#000;margin:.7rem 0 .7rem 0;}
+h6 { font-size: 1.5rem; line-height: 1.6; }
+
+/* Larger than phablet */
+@media (min-width: 550px) {
+    h1 { font-size: 5.0rem; }
+    h2 { font-size: 4.2rem; }
+    h3 { font-size: 3.6rem; margin-left:7.5rem;}
+    h4 { font-size: 3.0rem; }
+    h5 { font-size: 2.4rem; margin:1.5rem 0 1rem 0;}
+    h6 { font-size: 1.5rem; }
+}
+
+p {
+    margin-top: 0; }
+
+.desc {
+    text-align:justify;
+    font-size: 0.9em;
+    line-height:2;
+}
+
+/* Buttons
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+    display: inline-block;
+    height: 48px;
+    padding: 5px 30px;
+    color: #111;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 38px;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 1px solid #333;
+    box-sizing: border-box;
+    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    transition:.7s;
+}
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.button:focus,
+button:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+input[type="button"]:focus {
+    color: #FFF;
+    border-color: #222;
+    background-color: #111;
+    outline: 0;
+    transition:.7s;}
+.button.button-primary,
+button.button-primary,
+input[type="submit"].button-primary,
+input[type="reset"].button-primary,
+input[type="button"].button-primary {
+    color: #FFF;
+    background-color: #33C3F0;
+    border-color: #33C3F0; }
+.button.button-primary:hover,
+button.button-primary:hover,
+input[type="submit"].button-primary:hover,
+input[type="reset"].button-primary:hover,
+input[type="button"].button-primary:hover,
+.button.button-primary:focus,
+button.button-primary:focus,
+input[type="submit"].button-primary:focus,
+input[type="reset"].button-primary:focus,
+input[type="button"].button-primary:focus {
+    color: #FFF;
+    background-color: #1EAEDB;
+    border-color: #1EAEDB; }
+
+
+
+/* Links
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+a {
+    color: #666666; text-decoration:none;}
+a:hover {
+    color: #222222; transition:.7s;}
+
+/* Spacing
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+button,
+.button {
+    margin-bottom: 1rem; }
+input,
+textarea,
+select,
+fieldset {
+    margin-bottom: 1.5rem; }
+pre,
+blockquote,
+dl,
+figure,
+table,
+p,
+ul,
+ol,
+form {
+    margin-bottom: 2.5rem; }
+
+
+/* Utilities
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.u-full-width {
+    width: 100%;
+    box-sizing: border-box; }
+.u-max-full-width {
+    max-width: 955px;
+    box-sizing: border-box; }
+.u-pull-right {
+    float: right; }
+.u-pull-left {
+    float: left; }
+
+
+
+
+
+/* Clearing
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+/* Self Clearing Goodness */
+.container:after,
+.row:after,
+.u-cf {
+    content: "";
+    display: table;
+    clear: both; }
