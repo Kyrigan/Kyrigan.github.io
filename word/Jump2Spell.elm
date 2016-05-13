@@ -546,8 +546,8 @@ plus color = group [ filled color (rect 4 12),
 
 timerText t color size win winTime = text( Text.style (timerStyle color size) 
                                     (fromString ("Time: " ++ toString 
-                                      ( if win then round(winTime) else
-                                        if round (startingTime - t/50) < 0 then 0 else round (startingTime - t/50)))) )
+                                      ( if win then ceiling(winTime) else
+                                        if ceiling (startingTime - t/50) < 0 then 0 else ceiling (startingTime - t/50)))) )
                                     
 
 timerStyle color size ={ typeface = [ "Arial" ]

@@ -8492,8 +8492,8 @@ Elm.Main.make = function (_elm) {
       A2(timerStyle,color,size),
       $Text.fromString(A2($Basics._op["++"],
       "Time: ",
-      $Basics.toString(win ? $Basics.round(winTime) : _U.cmp($Basics.round(startingTime - t / 50),
-      0) < 0 ? 0 : $Basics.round(startingTime - t / 50))))));
+      $Basics.toString(win ? $Basics.ceiling(winTime) : _U.cmp($Basics.ceiling(startingTime - t / 50),
+      0) < 0 ? 0 : $Basics.ceiling(startingTime - t / 50))))));
    });
    var backdrop = F5(function (w,h,t,win,winTime) {
       return $Graphics$Collage.group(_U.list([A2($Graphics$Collage.filled,
