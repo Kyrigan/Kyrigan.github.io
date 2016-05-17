@@ -7,14 +7,14 @@ nav {
     font-weight: 400;
     background: #fff;
     border: none;
-    font-size: 0.6em;
+    font-size: 1.2em;
     margin-bottom: 8em;
 
 }
 
 
 .toprow {margin:12.5rem 0 0 1.5rem;}
-.headline {color:#444;font-family:Oswald;font-size:3em;line-height:38px;margin-bottom:120px;}
+.headline {padding-left:1.5rem;color:#444;font-family:Oswald;font-size:4em;line-height:38px;margin-bottom:120px;}
 .about{padding-left:1.5rem;font-size:1.6rem}
 .work{padding-left:1.3rem;font-size:1.6rem}
 .workdetail{padding-left:1.5rem;text-align:justified;}
@@ -25,9 +25,9 @@ nav {
 .rescont {font-size:1.8rem;line-height:32px;padding-left:1.5rem;}
 .contactpad{padding-left:1.5rem;margin-left:0;margin-top:10rem;}
 .email{margin-top:2.7rem;padding-left:1.5em;}
-.email2{font-size:1.8rem;margin-top:.4rem;padding-left:1.5rem;margin-left:0;}
+.email2{font-size:1.6rem;margin-top:.4rem;padding-left:1.5rem;margin-left:0;}
 .tel{margin-top:3rem;padding-left:1.5em;}
-.tel2{font-size:1.8rem;margin-top:.1rem;padding-left:1.5rem;margin-left:0;}
+.tel2{font-size:1.6rem;margin-top:.1rem;padding-left:1.5rem;margin-left:0;}
 .social{margin-top:3rem;padding-left:1.5em;}
 .linkedin{font-size:1.8rem;margin-top:.8rem;background:url(images/linkedin.png) no-repeat left;padding-left:3rem;margin-left:1.5rem;}
 .twitter{font-size:1.8rem;margin-top:.9rem;background:url(images/twitter.png) no-repeat left;padding-left:3rem;margin-left:1.5rem;}
