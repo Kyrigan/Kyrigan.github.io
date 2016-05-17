@@ -14,20 +14,20 @@ nav {
 
 
 .toprow {margin:12.5rem 0 0 1.5rem;}
-.headline {padding-left:1.5rem;color:#444;font-family:Oswald;font-size:4em;line-height:38px;margin-bottom:120px;}
-.about{padding-left:1.5rem;font-size:1.6rem}
+.headline {padding-left:1.4rem;color:#444;font-family:Oswald;font-size:4em;line-height:38px;margin-bottom:120px;}
+.about{padding-left:1.4rem;font-size:1.6rem}
 .work{padding-left:1.3rem;font-size:1.6rem}
-.workdetail{padding-left:1.5rem;text-align:justified;}
+.workdetail{padding-left:1.4rem;text-align:justified;}
 .wdpadding{margin:3rem 0 0 0;}
 .sansserif{font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;color:#fff;font-size:11px;  font-weight: 400;
     letter-spacing: .1rem;}
-.copyright{padding:1.7rem 0 0 4rem;}
-.rescont {font-size:1.8rem;line-height:32px;padding-left:1.5rem;}
+.copyright{padding:1.5rem 0 0 4rem;}
+.rescont {font-size:1.8rem;line-height:32px;padding-left:1.4rem;}
 .contactpad{padding-left:1.5rem;margin-left:0;margin-top:10rem;}
-.email{margin-top:2.7rem;padding-left:1.5em;}
-.email2{font-size:1.6rem;margin-top:.4rem;padding-left:1.5rem;margin-left:0;}
-.tel{margin-top:3rem;padding-left:1.5em;}
-.tel2{font-size:1.6rem;margin-top:.1rem;padding-left:1.5rem;margin-left:0;}
+.email{margin-top:2.7rem;padding-left:1.4em;}
+.email2{font-size:1.6rem;margin-top:.4rem;padding-left:1.4rem;margin-left:0;}
+.tel{margin-top:3rem;padding-left:1.4em;}
+.tel2{font-size:1.6rem;margin-top:.1rem;padding-left:1.4rem;margin-left:0;}
 .social{margin-top:3rem;padding-left:1.5em;}
 .linkedin{font-size:1.8rem;margin-top:.8rem;background:url(images/linkedin.png) no-repeat left;padding-left:3rem;margin-left:1.5rem;}
 .twitter{font-size:1.8rem;margin-top:.9rem;background:url(images/twitter.png) no-repeat left;padding-left:3rem;margin-left:1.5rem;}
