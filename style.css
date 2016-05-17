@@ -2,10 +2,10 @@
 
 
 .toprow {margin:12.5rem 0 0 1.5rem;}
-.headline {color:#444;font-family:Oswald;line-height:38px;margin-bottom:120px;}
+.headline {color:#444;font-family:Oswald;font-size:3em;line-height:38px;margin-bottom:120px;}
 .about{padding-left:1.5rem;font-size:1.6rem}
-.work{padding-left:1.5rem;font-size:1.6rem}
-.workdetail{padding-left:1.5rem;text-align:center;}
+.work{padding-left:1.3rem;font-size:1.6rem}
+.workdetail{padding-left:1.5rem;text-align:justified;}
 .wdpadding{margin:3rem 0 0 0;}
 .sansserif{font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;color:#fff;font-size:11px;  font-weight: 400;
     letter-spacing: .1rem;}
@@ -43,6 +43,11 @@ hr {
     margin: 0;
     padding: 0 20px;
     box-sizing: border-box; }
+
+.speccon {
+    margin-top: 30px;
+}
+
 .column,
 .columns {
     width: 100%;
@@ -62,9 +67,9 @@ hr {
     .nav {font-size:1.8rem;}
     .headline {font-size:9.0rem;line-height:44px;padding:20rem 0 7.5rem 7.5rem;}
     .about {font-size:1.8rem;line-height:32px;padding-left:7.5rem;}
-    .work {font-size:1.8rem;line-height:32px;padding-left:7.5rem;}
+    .work {font-size:1.5rem;line-height:32px;padding-left:7.5rem;}
     .rescont {font-size:1.8rem;line-height:32px;padding-left:7.5rem;}
-    .workdetail {padding-left:7.5rem;padding-top:6rem;font-size:1.6rem;text-align:left;}
+    .workdetail {padding-left:2.5rem;font-size:1.5rem;}
     .wdpadding{margin:0;}
     .footer{padding-left:3.5rem;margin-top:20rem;}
     .button{margin-left:7.5rem;}
