@@ -1,0 +1,203 @@
+
+<!doctype html>
+<html>
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400' rel='stylesheet' type='text/css'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Ray Winardi</title>
+    <meta name="description" content="Ray is an undergraduate Computer Science student at McMaster University." />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="newstyle.css" rel="stylesheet" type="text/css">
+    <link href="normalize.css." rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Projects</a></li>
+        <li><a href="#res">Résumé</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+
+
+<div class="headline">
+    <div class="container">
+        <div class="row">
+            <div class="twelve columns">
+                Ray Winardi
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="twelve columns">
+                <h3>About</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="about section group">
+    <div class="col span_12_of_12">
+        <p>
+            My name is Ray Winardi, adapting the alias 'Kyrigan' as my username for Github. I was born in Jakarta, Indonesia before
+            moving to Canada, only to move back to Indonesia around my eighth birthday. 10 years later, I've returned to Canada.
+        </p>
+
+        <p>
+            I'm currently pursuing my bachelor's degree in Computer Science at McMaster University.
+            I am well acquainted with Python, PHP and <b><a target="_blank" href="http://elm-lang.org">ELM</a></b>. Over the summer of 2016
+            I was heavily involved in my school's Computer and Software Outreach program, teaching kids functional
+            programming to make games.
+        </p>
+        <p>
+            On the side, I was a cast member of the <b><a target="_blank" href="http://www.macengmusical.com">McMaster Engineering Musical</a></b>
+            and fully intend on continuing that trend for the rest of my tenure at McMaster.
+        </p>
+    </div>
+</div>
+
+<div class="container u-max-full-width">
+    <hr />
+</div>
+
+<div id="work">
+    <div class="container">
+        <div class="row">
+            <div class="twelve columns">
+                <h3>Projects</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="twelve columns work">
+            <p>Here are some projects I have written in ELM. <i>(Note: the platformers were written for
+                ELM 0.16, before the removal of signals.)</i></p>
+        </div>
+    </div>
+    <div class="row desc">
+        <div class="six columns">
+
+
+            <p class="work">
+                Let's put aside all the complicated integrals and derivatives we've learnt
+                to go back to a simpler time, when we only needed to know four basic operations. Try this little game
+                which turns simple math into a puzzling platformer.</p>
+
+            <a href="math/"><div class="button">MATH PLATFORMER</div></a>
+
+        </div>
+
+        <div class="six columns">
+            <p class="work">
+                Trivia games. Been there, done that. This game demands you answer a question and spell it out correctly
+                by jumping from platform to platform with the corresponding characters. It's a lot like math platformer,
+                but there is far more room for ingenuity.</p>
+
+            <a href="word/"><div class="button">WORD PLATFORMER</div></a>
+
+
+        </div>
+    </div>
+</div>
+<div class="container speccon">
+    <div class="row desc">
+        <div class="six columns">
+
+
+            <p class="work">
+                This was the result of a book presentation I had to do in my first-year going into University. I
+                love reading about this topic, and consistently go back to these slides of mine to add new information
+                or improve the animations. Take a look!</p>
+
+            <a href="slides/"><div class="button">BIG DATA SLIDES</div></a>
+
+        </div>
+
+
+
+    </div>
+</div>
+</div>
+
+
+
+<div class="container u-max-full-width">
+    <hr />
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="seven columns padright2">
+            <div id="res">
+                <h3>Résumé</h3>
+                <p class="rescont">Last updated May 12, 2016.<br />Feel free to get in touch for any questions.</p>
+                <a href="resume.pdf"><div class="button">DOWNLOAD PDF</div></a>
+            </div>
+        </div>
+
+        <div class="three columns padleft">
+            <div id="contact"><h3 class="contactpad">Contact</h3>
+                <div class="email">EMAIL</div>
+                <div class="email2"><a href="mailto:raywinardi@gmail.com">raywinardi@gmail.com</a></div>
+                <div class="email2"><a href="mailto:winardir@mcmaster.ca">winardir@mcmaster.ca</a></div>
+                <div class="tel">TEL</div>
+                <div class="tel2">416-919-8667</div>
+                <div class="tel">SOCIAL</div>
+                <div class="tel2"><a href="https://ca.linkedin.com/in/raywinardi">/in/raywinardi</a></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="five columns"><p class="copyright">&copy; 2016 Ray Winardi. All rights reserved.</p></div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    $(function() {
+
+        // ScrollTo
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+
+    });
+
+</script>
+
+</body>
+</html>
