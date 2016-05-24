@@ -414,10 +414,10 @@ slide4 t (w,h) =
                      text (style footStyle (fromString "2015")) |> move (170,-210),
                      text (style footStyle (fromString "Warning: Diagram not to scale.")) |> move (0,-250),
                      text (style axisStyle (fromString "Volume")) |> move (-240,0) |> rotate (degrees 90),
-                     outlined (solid blue) (segment (-210,-200) (210,-200)),
+                     traced (solid blue) (segment (-210,-200) (210,-200)),
                      filled blue (ngon 3 10) |> move (210,-200) |> rotate (degrees 0),
                      filled blue (ngon 3 10) |> move (-210,200) |> rotate (degrees 90),
-                     outlined (solid blue) (segment (-210,-200) (-210,200)),
+                     traced (solid blue) (segment (-210,-200) (-210,200)),
                      text (style blueFoot2 (fromString ("Source: www.sintef.no/en/corporate-news/big-data--for-better-or-worse (2013)"))) |> move (0,-290)]
 
 bar x = group [filled blue (rect 20 x) |> moveY (x/2-200)]
@@ -523,18 +523,18 @@ arms c = group [filled c (rect 45 130) |> move (-75,0),
                  filled c (circle 22.5) |> move (75,65)]
 ----------------------------------------------------------
 slide8 t' (width,height) = let t = mod t' 8000 in collage width height [ plot |> moveY (-50), dots (t-500) |> moveY (-50),
-  outlined borderBlue (drawLine (t-3600) (-180,-81) (180,4)),
-  outlined (dotted blue) (drawLine (t-4200) (-5,-5) (3,-36)),
-  outlined (dotted red) (drawLine (t-4200) (-8,-75) (-16,-44)),
-  outlined (dotted blue) (drawLine (t-3000) (-180,-46) (180,39)),
-  outlined (dotted red) (drawLine (t-3000) (-180,-116) (180,-31)),
+  traced borderBlue (drawLine (t-3600) (-180,-81) (180,4)),
+  traced (dotted blue) (drawLine (t-4200) (-5,-5) (3,-36)),
+  traced (dotted red) (drawLine (t-4200) (-8,-75) (-16,-44)),
+  traced (dotted blue) (drawLine (t-3000) (-180,-46) (180,39)),
+  traced (dotted red) (drawLine (t-3000) (-180,-116) (180,-31)),
   text (style titleStyle3(fromString ("MESSINESS"))) |> move (0,280),
   text (style blueFoot(fromString ("Trading off exactitude for looking at all the data."))) |> move (0,215)]
 
-plot =  group [      outlined (solid blue) (segment (-210,-200) (210,-200)),
+plot =  group [      traced (solid blue) (segment (-210,-200) (210,-200)),
                      filled blue (ngon 3 10) |> move (210,-200) |> rotate (degrees 0),
                      filled blue (ngon 3 10) |> move (-210,200) |> rotate (degrees 90),
-                     outlined (solid blue) (segment (-210,-200) (-210,200)),
+                     traced (solid blue) (segment (-210,-200) (-210,200)),
                      text (style footStyle (fromString ("x1"))) |> move (208,-213),
                      text (style footStyle (fromString ("x2"))) |> move (-232,200)]
 
@@ -570,16 +570,16 @@ slide9 t' (width,height) = let t = mod t' 6000 in collage width height [
  text (style blueFoot(fromString ("Moving away from causation in favor of looking for patterns and correlation."))) |> move (0,215),
  outlined borderBlue (square 80) |> move (-170, 60),
  outlined borderBlue (square 80) |> move (-170, -60),
- outlined thickRed (drawLine (t-1000) (-200,90) (-140,30)),
- outlined thickRed (drawLine (t-1500) (-200,30) (-140,90)),
- outlined thickGreen (drawLine (t-2500) (-200,-75) (-185,-90)),
- outlined thickGreen (drawLine (t-3000) (-185,-90) (-140,-30)),
- outlined borderBlue (drawLine (t-1000) (150,120) (150,-120)),
- outlined borderBlue (drawLine (t-1700) (150,-120) (410,-120)),
- outlined borderBlue (drawLine (t-2400) (150,-60) (210,-25)),
- outlined borderBlue (drawLine (t-3100) (210,-25) (270,-45)),
- outlined borderBlue (drawLine (t-3800) (270,-45) (330,0)),
- outlined borderBlue (drawLine (t-4500) (330,0) (390,110)),
+ traced thickRed (drawLine (t-1000) (-200,90) (-140,30)),
+ traced thickRed (drawLine (t-1500) (-200,30) (-140,90)),
+ traced thickGreen (drawLine (t-2500) (-200,-75) (-185,-90)),
+ traced thickGreen (drawLine (t-3000) (-185,-90) (-140,-30)),
+ traced borderBlue (drawLine (t-1000) (150,120) (150,-120)),
+ traced borderBlue (drawLine (t-1700) (150,-120) (410,-120)),
+ traced borderBlue (drawLine (t-2400) (150,-60) (210,-25)),
+ traced borderBlue (drawLine (t-3100) (210,-25) (270,-45)),
+ traced borderBlue (drawLine (t-3800) (270,-45) (330,0)),
+ traced borderBlue (drawLine (t-4500) (330,0) (390,110)),
  text (style titleStyle3 (fromString ("WHY"))) |> move (-20,70),
  text (style titleStyle3 (fromString ("WHAT"))) |> move (0,-50)]
 ----------------------------------------------------------------

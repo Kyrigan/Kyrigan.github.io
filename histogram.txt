@@ -1,0 +1,142 @@
+import Html exposing (Html, Attribute, text, toElement, fromElement, div, input)
+import Html.Attributes exposing (..)
+import Graphics.Collage exposing (..)
+import Graphics.Element exposing (..)
+import Html.Events exposing (on, targetValue)
+import Signal exposing (Address)
+import StartApp.Simple as StartApp
+import Dict as Dict
+import List as List
+import Regex as Regex
+import Maybe exposing (Maybe)
+import String
+import Color exposing (..)
+ 
+ 
+{- --------------------------------------------------------------------------------------
+ - Draw Histogram
+ -
+ - TODO: 
+ - Right now drawHistoGraph just prints the dictionary of word frequencies to the screen
+ - Change the code to use the wordFreqs dictionary to create a Histogram 
+ -               (just create a list of filled color (rect size1 size2) and call collage)
+ - Reference http://package.elm-lang.org/packages/elm-lang/core/2.1.0/Dict
+ - --------------------------------------------------------------------------------------
+ -}
+
+drawHistoGraph : String -> Element
+drawHistoGraph par = let
+     words     = Dict.keys wordFreqs
+     wordFreqs = updateWordDict (parseWords par)
+--  in show wordFreqs -- change to collage .....
+     cHeight = 800
+     cWidth = 1000
+     maxFreq = List.maximum (Dict.values wordFreqs)
+-- the words input are key and their count is value
+    
+     mkRect : String -> Int -> Form
+    
+     mkRect word freq  = group [move (0,toFloat freq*15) (filled red (rect (30) (toFloat freq*30)) )
+                        , move (-5,0) (toForm (show word)) |> scale 0.6]
+                        
+     rects = Dict.values <| Dict.map mkRect wordFreqs
+                    
+     listN = List.indexedMap (,) rects    
+    
+     mvRect (pos,rect)  = rect |> move ((toFloat (pos*55)- (cHeight/2)) ,0)
+    
+     realrects = List.map mvRect listN
+    
+    in collage cWidth cHeight realrects
+--movedRects needs to move each rectangle a certain number of spaces!
+{----------------------------------------------------------------
+ - Update Word Histogram
+ - --------------------------------------------------------------------------------------
+ -}
+
+worthCounting : String -> Bool
+worthCounting word = case word of 
+                        "the" -> False
+                        "to" -> False
+                        "and" -> False
+                        "a" -> False
+                        "in" -> False
+                        "is" -> False
+                        "it" -> False
+                        "that" -> False
+                        "was" -> False
+                        "for" -> False
+                        "of"  -> False
+                        "on" -> False
+                        "are" -> False
+                        "with" -> False
+                        "as" -> False
+                        "be" -> False
+                        "at" -> False
+                        "have" -> False
+                        "had" -> False
+                        "or" -> False
+                        ""   -> False
+                        otherwise -> True
+
+
+
+updateWordDict : List String -> Dict.Dict String Int
+updateWordDict words = List.foldr (\w d -> Dict.update w addWord d) Dict.empty words
+
+
+addWord : Maybe Int -> Maybe Int
+addWord w = case w of
+              Just x  -> Just (x+1)
+              Nothing -> Just 1
+
+
+
+parseWords : String -> List String
+parseWords par = List.filter worthCounting <| Regex.split Regex.All (Regex.regex " ") (removeSpecialChars par)
+
+
+
+removeSpecialChars : String -> String
+removeSpecialChars par = let 
+    special = "[,.]"
+  in Regex.replace Regex.All (Regex.regex special) (\_ -> "") par
+
+
+{- --------------------------------------------------------------------------------------
+ - HTML Code
+ - --------------------------------------------------------------------------------------
+ -}
+
+main =
+  StartApp.start { model = "", view = view, update = update }
+
+
+update newStr oldStr =
+  newStr
+
+
+view : Address String -> String -> Html
+view address string =
+  div []
+    [ input
+        [ placeholder "Enter Text"
+        , value string
+        , on "input" targetValue (Signal.message address)
+        , myStyle
+        ]
+        []
+    , 
+      div [ myStyle ] [ fromElement (drawHistoGraph string) ]
+    ]
+
+
+myStyle : Attribute
+myStyle =
+  style
+    [ ("width", "100%")
+    , ("height", "40px")
+    , ("padding", "10px 0")
+    , ("font-size", "2em")
+    , ("text-align", "center")
+    ]
