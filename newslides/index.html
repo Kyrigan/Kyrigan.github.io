@@ -9403,13 +9403,13 @@ var _user$project$Main$trans = F2(
 	function (t, y) {
 		return (_elm_lang$core$Native_Utils.cmp(t, 0) < 0) ? 0 : A2(_elm_lang$core$Basics$min, t, y);
 	});
-var _user$project$Main$slide2 = function (t) {
+var _user$project$Main$slide4 = function (t) {
 	var height = 300;
-	var width = 600;
+	var width = 300;
 	var titleText = function (title) {
 		return A2(
 			_user$project$Graphicsvg$move,
-			{ctor: '_Tuple2', _0: (0 - width) / 3, _1: (height / 2) + 50},
+			{ctor: '_Tuple2', _0: -180, _1: (height / 2) + 50},
 			A2(
 				_user$project$Graphicsvg$filled,
 				_user$project$Graphicsvg$black,
@@ -9459,7 +9459,7 @@ var _user$project$Main$slide2 = function (t) {
 		var _p5 = _p4;
 		return _p5._0;
 	};
-	var title = 'McMaster Marauders';
+	var title = 'All The Data In The World';
 	var xLabel = 'Year';
 	var xText = A2(
 		_user$project$Graphicsvg$move,
@@ -9472,13 +9472,13 @@ var _user$project$Main$slide2 = function (t) {
 					_user$project$Graphicsvg$customFont,
 					'Helvetica',
 					_user$project$Graphicsvg$text(xLabel)))));
-	var yLabel = 'Population';
+	var yLabel = 'Insert Unit Here';
 	var yText = A2(
 		_user$project$Graphicsvg$rotate,
 		_elm_lang$core$Basics$degrees(90),
 		A2(
 			_user$project$Graphicsvg$move,
-			{ctor: '_Tuple2', _0: ((0 - width) / 2) - 100, _1: height / 5},
+			{ctor: '_Tuple2', _0: ((0 - width) / 2) - 60, _1: height / 5},
 			A2(
 				_user$project$Graphicsvg$filled,
 				_user$project$Graphicsvg$black,
@@ -9489,12 +9489,12 @@ var _user$project$Main$slide2 = function (t) {
 						_user$project$Graphicsvg$text(yLabel))))));
 	var rawData = _elm_lang$core$Native_List.fromArray(
 		[
-			{ctor: '_Tuple3', _0: '2010', _1: 120, _2: _user$project$Graphicsvg$yellow},
-			{ctor: '_Tuple3', _0: '2011', _1: 200, _2: _user$project$Graphicsvg$green},
-			{ctor: '_Tuple3', _0: '2012', _1: 80, _2: _user$project$Graphicsvg$yellow},
-			{ctor: '_Tuple3', _0: '2013', _1: 120, _2: _user$project$Graphicsvg$green},
-			{ctor: '_Tuple3', _0: '2014', _1: 200, _2: _user$project$Graphicsvg$yellow},
-			{ctor: '_Tuple3', _0: '2015', _1: 80, _2: _user$project$Graphicsvg$green}
+			{ctor: '_Tuple3', _0: '2002', _1: 20, _2: _user$project$Graphicsvg$lightBlue},
+			{ctor: '_Tuple3', _0: '2004', _1: 40, _2: _user$project$Graphicsvg$lightBlue},
+			{ctor: '_Tuple3', _0: '2006', _1: 80, _2: _user$project$Graphicsvg$lightBlue},
+			{ctor: '_Tuple3', _0: '2008', _1: 160, _2: _user$project$Graphicsvg$lightBlue},
+			{ctor: '_Tuple3', _0: '2010', _1: 320, _2: _user$project$Graphicsvg$lightBlue},
+			{ctor: '_Tuple3', _0: '2016', _1: 1000, _2: _user$project$Graphicsvg$darkRed}
 		]);
 	var numBars = _elm_lang$core$List$length(rawData);
 	var mkXText = F2(
@@ -9540,7 +9540,7 @@ var _user$project$Main$slide2 = function (t) {
 						(width / _elm_lang$core$Basics$toFloat(numBars)) - 10,
 						((A2(
 							_user$project$Main$trans,
-							(t - (200 * _elm_lang$core$Basics$toFloat(xPos))) / 300,
+							(t - (100 * _elm_lang$core$Basics$toFloat(xPos))) / 200,
 							1) * height) * _p9._1) / _p10._0,
 						_p11));
 			}
@@ -9688,7 +9688,7 @@ var _user$project$Main$slide1 = function (t) {
 };
 var _user$project$Main$slides = _elm_lang$core$Array$fromList(
 	_elm_lang$core$Native_List.fromArray(
-		[_user$project$Main$slide1, _user$project$Main$slide2]));
+		[_user$project$Main$slide1, _user$project$Main$slide4]));
 var _user$project$Main$view = function (model) {
 	var slide = A2(
 		_elm_lang$core$Maybe$withDefault,
