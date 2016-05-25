@@ -19,12 +19,12 @@ main =
 -- MODEL
 
 
-type alias Model = {t : Time, c : Color}
+type alias Model = Time
 
 
 init : (Model, Cmd Msg)
 init =
-  (Model 0 darkGreen
+  (0
     , 
    Cmd.none)
 
@@ -34,19 +34,14 @@ init =
 
 
 type Msg
-  = Tick Time | ChangeBackground
+  = Tick Time
 
 
 update : Msg -> Model -> (Model, Cmd Msg)
 update action model =
   case action of
     Tick newTime ->
-      ({model | t = model.t + 1}, Cmd.none)
-    ChangeBackground -> ({model | c = darkRed}, Cmd.none)
-
-onKeyDown message =
-    on "keydown"
-      (Json.succeed message)
+      (model+1, Cmd.none)
 
 
 
@@ -61,11 +56,10 @@ subscriptions model =
 
 -- VIEW
 
-view model = let t = model.t in
-            div [onKeyDown ChangeBackground] 
+view model = 
+            div []   
             [
-            collage 500 220 [rect 500 250
-                                |> filled darkRed]
+            collage 500 220 [pacman]
             ]
 
 pacman t = group [wedge 100 0.5

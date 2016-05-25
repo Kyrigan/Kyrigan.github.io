@@ -23,13 +23,24 @@ var _user$project$Main$pacman = function (t) {
 			]));
 };
 var _user$project$Main$view = function (t) {
-	return A3(
-		_user$project$Graphicsvg$collage,
-		500,
-		500,
+	return A2(
+		_elm_lang$html$Html$div,
+		_elm_lang$core$Native_List.fromArray(
+			[]),
 		_elm_lang$core$Native_List.fromArray(
 			[
-				_user$project$Main$pacman(t)
+				A3(
+				_user$project$Graphicsvg$collage,
+				500,
+				220,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						A2(
+						_user$project$Graphicsvg$filled,
+						_user$project$Graphicsvg$darkGreen,
+						A2(_user$project$Graphicsvg$rect, 500, 250)),
+						_user$project$Main$pacman(t)
+					]))
 			]));
 };
 var _user$project$Main$update = F2(

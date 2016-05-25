@@ -37,14 +37,16 @@ type Face = Face Float -- size
 
 type Font = Serif | Sansserif | FixedWidth | Custom String
 
+type Pull = Pull (Float,Float) (Float,Float)
+
 line : (Float,Float) -> (Float,Float) -> Stencil
 line p1 p2 = Path [p1,p2]
 
 polygon : List (Float,Float) -> Stencil
 polygon ptList = Polygon ptList
 
-polyline: List(Float,Float) -> Stencil
-polyline ptList = Path ptList
+openPolygon: List(Float,Float) -> Stencil
+openPolygon ptList = Path ptList
 
 ngon n r = Polygon <| List.map (ptOnCircle r n) [0..n]
 
@@ -85,11 +87,10 @@ ptOnCircle r n cn = let angle = 360 * cn / n
                     in
                     (r * cos (degrees angle), r * sin (degrees angle))
 
-curve: (Float,Float) -> (Float,Float) -> (Float,Float) -> Stencil
-curve (a,b) (c,d) (e,f) = BezierPath (a,b) [((c,d),(e,f))]
+curve: (Float,Float) -> List Pull -> Stencil
+curve (a,b) list = BezierPath (a,b) (List.map curveListHelper list)
 
-polycurve: (Float,Float) -> List((Float,Float),(Float,Float)) -> Stencil
-polycurve (a,b) list = BezierPath (a,b) list
+curveListHelper (Pull (a,b) (c,d)) = ((a,b),(c,d))
 
 text: String -> Stencil
 text str = Text (Face 12 False False False False False Serif) str
@@ -165,15 +166,22 @@ scaleT (trans,((ssx,ssy),r,(shx,shy))) (sx,sy) = (trans,((ssx*sx,ssy*sy),r,(shx,
 
 collage : Float -> Float -> (List Shape) -> Html.Html msg
 collage w h shapes = Svg.svg
-                     [ width (toString w), height (toString h), viewBox ((toString (-w/2)) ++ " " ++ (toString (-h/2)) ++ " " ++ (toString w) ++ " " ++ (toString h))]
+                     [ width "100%", viewBox ((toString (-w/2)) ++ " " ++ (toString (-h/2)) ++ " " ++ (toString w) ++ " " ++ (toString h))]
                      (List.map (createSVG id) shapes)
 
 f = 500 --focal length
 puppetShow : Float -> Float -> List (Float,Shape) -> Html.Html msg
-puppetShow w h listShapes = collage w h (List.reverse (List.map extractShape (List.sortBy (fst) listShapes)))
+puppetShow w h listShapes = collage w h (List.map extractShape (List.sortWith flippedComparison listShapes))
+
 extractShape: (Float,Shape) -> Shape
 extractShape (z,shape) = let s = f/(f+z) 
                              in group [shape] |> scale s
+
+flippedComparison (a,x) (b,y) =
+   case compare a b of
+     LT -> GT
+     EQ -> EQ
+     GT -> LT
 
 createSVG : Transform -> Shape -> Svg.Svg msg
 createSVG trans shape =
@@ -302,6 +310,8 @@ move disp shape = Move disp shape
 scale s shape = ScaleXY s s shape
 scaleX s shape = ScaleXY s 1 shape
 scaleY s shape = ScaleXY 1 s shape
+mirrorX shape = ScaleXY -1 1 shape
+mirrorY shape = ScaleXY 1 -1 shape
 group shapes = Group shapes
 rgb r g b = RGBA r g b 1
 rgba r g b a = RGBA r g b a
@@ -312,54 +322,8 @@ pairToString (x,y) = (toString x)++","++(toString y)
 createBezierString first list = "M " ++ (pairToString first) ++ String.concat (List.map bezierStringHelper list)
 bezierStringHelper ((a,b),(c,d)) = " Q " ++ pairToString (a,b) ++ " " ++ pairToString (c,d)
 
-main = collage 600 625
-    [
-        group [
-                graphPaper 20,
-                group [
-                        group   [
-                                    outlined (solid 2) black (polycurve (10,75) [((50,-300),(100,-65)),((175,300),(300,65))]) |> move(-100,0),
-                                    outlined (solid 2) black (curve (10,10) (100,100) (-40, 40)) |> move(100,-200)
-                                ] |> curveHelper,
-                  text "Hello World!"  |> size 72
-                                |> bold
-                                |> customFont "Comic Sans MS"
-                                |> outlined (dotdash 2) hotPink
-                                |> move(-200,200)
-                ]
-        ]
-    ]
+                                                                          
 
-main6 = puppetShow 600 600 [
-                            (1000, group [filled blue (circle 50) |> move (-300,0)])
-                          , (500, group [filled black (circle 50) |> move (-400,0)])
-                            
-                          ]
-
-main3 = collage 600 600
-    [
-        group [
-                graphPaper 40,
-                group [
-                    group   [
-                                filled green (circle 250) |> addOutline (solid 5) blue,
-                                group   [
-                                            filled blue (circle 50) |> move(-100,100) |> addOutline (solid 5) black |> makeTransparent 0.5,
-                                            filled blue (circle 50) |> move(100,100) |> addOutline (solid 5) black,
-                                            filled red (wedge 50 1) |> rotate(degrees -90) |> scale 2
-                                        ] |> move(0,-50)
-                            ] |> makeTransparent 0.5
-                ] |> scale 1
-                --filled (rgb 0 0 200) (circle 100),
-               -- filled (rgb 255 255 0) (oval 120 60)
-        ]
-    ]
-
-main2 = collage 600 600 [
-        group   [
-                    outlined (increasing 1 10 5) black (line (-200,0) (200,0))
-                        ]
-        ]
 
 pacman = group [filled (rgb 255 255 0) (wedge 100 0.75) |> rotate (degrees 45) |> scale 1]
 
@@ -368,7 +332,7 @@ mkRGB (RGBA r g b _) = "#" ++ (toHex <| round r) ++ (toHex <| round g) ++ (toHex
 
 toHex: Int -> String
 toHex dec = let first = dec // 16
-                second = (dec % 16) // 16
+                second = (dec % 16)
             in (toHexHelper first) ++ (toHexHelper second)
 
 toHexHelper: Int -> String

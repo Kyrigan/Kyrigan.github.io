@@ -38,7 +38,7 @@ var _user$project$Graphicsvg$toHexHelper = function (dec) {
 	}
 };
 var _user$project$Graphicsvg$toHex = function (dec) {
-	var second = (A2(_elm_lang$core$Basics_ops['%'], dec, 16) / 16) | 0;
+	var second = A2(_elm_lang$core$Basics_ops['%'], dec, 16);
 	var first = (dec / 16) | 0;
 	return A2(
 		_elm_lang$core$Basics_ops['++'],
@@ -107,43 +107,57 @@ var _user$project$Graphicsvg$degrees = function (deg) {
 var _user$project$Graphicsvg$makePair = function (n) {
 	return {ctor: '_Tuple2', _0: n, _1: n};
 };
-var _user$project$Graphicsvg$f = 500;
-var _user$project$Graphicsvg$scaleT = F2(
+var _user$project$Graphicsvg$flippedComparison = F2(
 	function (_p10, _p9) {
 		var _p11 = _p10;
 		var _p12 = _p9;
+		var _p13 = A2(_elm_lang$core$Basics$compare, _p11._0, _p12._0);
+		switch (_p13.ctor) {
+			case 'LT':
+				return _elm_lang$core$Basics$GT;
+			case 'EQ':
+				return _elm_lang$core$Basics$EQ;
+			default:
+				return _elm_lang$core$Basics$LT;
+		}
+	});
+var _user$project$Graphicsvg$f = 500;
+var _user$project$Graphicsvg$scaleT = F2(
+	function (_p15, _p14) {
+		var _p16 = _p15;
+		var _p17 = _p14;
 		return {
 			ctor: '_Tuple2',
-			_0: _p11._0,
+			_0: _p16._0,
 			_1: {
 				ctor: '_Tuple3',
-				_0: {ctor: '_Tuple2', _0: _p11._1._0._0 * _p12._0, _1: _p11._1._0._1 * _p12._1},
-				_1: _p11._1._1,
-				_2: {ctor: '_Tuple2', _0: _p11._1._2._0, _1: _p11._1._2._1}
+				_0: {ctor: '_Tuple2', _0: _p16._1._0._0 * _p17._0, _1: _p16._1._0._1 * _p17._1},
+				_1: _p16._1._1,
+				_2: {ctor: '_Tuple2', _0: _p16._1._2._0, _1: _p16._1._2._1}
 			}
 		};
 	});
 var _user$project$Graphicsvg$rotT = F2(
-	function (_p13, rad) {
-		var _p14 = _p13;
+	function (_p18, rad) {
+		var _p19 = _p18;
 		return {
 			ctor: '_Tuple2',
-			_0: _p14._0,
-			_1: {ctor: '_Tuple3', _0: _p14._1._0, _1: _p14._1._1 + rad, _2: _p14._1._2}
+			_0: _p19._0,
+			_1: {ctor: '_Tuple3', _0: _p19._1._0, _1: _p19._1._1 + rad, _2: _p19._1._2}
 		};
 	});
 var _user$project$Graphicsvg$moveT = F2(
-	function (_p16, _p15) {
-		var _p17 = _p16;
-		var _p18 = _p15;
+	function (_p21, _p20) {
+		var _p22 = _p21;
+		var _p23 = _p20;
 		return {
 			ctor: '_Tuple2',
-			_0: _p17._0,
+			_0: _p22._0,
 			_1: {
 				ctor: '_Tuple3',
-				_0: _p17._1._0,
-				_1: _p17._1._1,
-				_2: {ctor: '_Tuple2', _0: _p17._1._2._0 + _p18._0, _1: _p17._1._2._1 + _p18._1}
+				_0: _p22._1._0,
+				_1: _p22._1._1,
+				_2: {ctor: '_Tuple2', _0: _p22._1._2._0 + _p23._0, _1: _p22._1._2._1 + _p23._1}
 			}
 		};
 	});
@@ -162,30 +176,30 @@ var _user$project$Graphicsvg$id = {
 		_2: {ctor: '_Tuple2', _0: 0, _1: 0}
 	}
 };
-var _user$project$Graphicsvg$coalesce = function (_p19) {
-	var _p20 = _p19;
-	var _p29 = _p20._1._0._1;
-	var _p28 = _p20._1._0._0;
-	var _p27 = _p20._1._2._1;
-	var _p26 = _p20._1._2._0;
-	var _p25 = _p20._1._1;
-	var _p24 = _p20._0._1._1;
-	var _p23 = _p20._0._1._0;
-	var _p22 = _p20._0._0._1;
-	var _p21 = _p20._0._0._0;
-	var ry = _elm_lang$core$Basics$sin(_p25);
-	var rx = _elm_lang$core$Basics$cos(_p25);
-	var sd = _p29 * _p24;
-	var sc = _p28 * _p23;
-	var sb = _p29 * _p22;
-	var sa = _p28 * _p21;
+var _user$project$Graphicsvg$coalesce = function (_p24) {
+	var _p25 = _p24;
+	var _p34 = _p25._1._0._1;
+	var _p33 = _p25._1._0._0;
+	var _p32 = _p25._1._2._1;
+	var _p31 = _p25._1._2._0;
+	var _p30 = _p25._1._1;
+	var _p29 = _p25._0._1._1;
+	var _p28 = _p25._0._1._0;
+	var _p27 = _p25._0._0._1;
+	var _p26 = _p25._0._0._0;
+	var ry = _elm_lang$core$Basics$sin(_p30);
+	var rx = _elm_lang$core$Basics$cos(_p30);
+	var sd = _p34 * _p29;
+	var sc = _p33 * _p28;
+	var sb = _p34 * _p27;
+	var sa = _p33 * _p26;
 	return {
 		ctor: '_Tuple2',
 		_0: {
 			ctor: '_Tuple3',
 			_0: {ctor: '_Tuple2', _0: (rx * sa) - (ry * sb), _1: (ry * sa) + (rx * sb)},
 			_1: {ctor: '_Tuple2', _0: (rx * sc) - (ry * sd), _1: (ry * sc) + (rx * sd)},
-			_2: {ctor: '_Tuple2', _0: (_p20._0._2._0 + (_p21 * _p26)) + (_p23 * _p27), _1: (_p20._0._2._1 + (_p22 * _p26)) + (_p24 * _p27)}
+			_2: {ctor: '_Tuple2', _0: (_p25._0._2._0 + (_p26 * _p31)) + (_p28 * _p32), _1: (_p25._0._2._1 + (_p27 * _p31)) + (_p29 * _p32)}
 		},
 		_1: {
 			ctor: '_Tuple3',
@@ -199,39 +213,39 @@ var _user$project$Graphicsvg$createSVG = F2(
 	function (trans, shape) {
 		createSVG:
 		while (true) {
-			var _p30 = shape;
-			switch (_p30.ctor) {
+			var _p35 = shape;
+			switch (_p35.ctor) {
 				case 'Inked':
-					var _p42 = _p30._0;
+					var _p47 = _p35._0;
 					var strokeAttrs = function () {
-						var _p31 = _p30._1;
-						if (_p31.ctor === 'Nothing') {
+						var _p36 = _p35._1;
+						if (_p36.ctor === 'Nothing') {
 							return _elm_lang$core$Native_List.fromArray(
 								[]);
 						} else {
-							if (_p31._0._0.ctor === 'Solid') {
-								var _p32 = _p31._0._1;
+							if (_p36._0._0.ctor === 'Solid') {
+								var _p37 = _p36._0._1;
 								return _elm_lang$core$Native_List.fromArray(
 									[
 										_elm_lang$svg$Svg_Attributes$strokeWidth(
-										_elm_lang$core$Basics$toString(_p31._0._0._0)),
+										_elm_lang$core$Basics$toString(_p36._0._0._0)),
 										_elm_lang$svg$Svg_Attributes$stroke(
-										_user$project$Graphicsvg$mkRGB(_p32)),
+										_user$project$Graphicsvg$mkRGB(_p37)),
 										_elm_lang$svg$Svg_Attributes$strokeOpacity(
-										_user$project$Graphicsvg$mkAlpha(_p32))
+										_user$project$Graphicsvg$mkAlpha(_p37))
 									]);
 							} else {
-								var _p33 = _p31._0._1;
+								var _p38 = _p36._0._1;
 								return A2(
 									_elm_lang$core$Basics_ops['++'],
 									_elm_lang$core$Native_List.fromArray(
 										[
 											_elm_lang$svg$Svg_Attributes$strokeWidth(
-											_elm_lang$core$Basics$toString(_p31._0._0._1)),
+											_elm_lang$core$Basics$toString(_p36._0._0._1)),
 											_elm_lang$svg$Svg_Attributes$stroke(
-											_user$project$Graphicsvg$mkRGB(_p33)),
+											_user$project$Graphicsvg$mkRGB(_p38)),
 											_elm_lang$svg$Svg_Attributes$strokeOpacity(
-											_user$project$Graphicsvg$mkAlpha(_p33))
+											_user$project$Graphicsvg$mkAlpha(_p38))
 										]),
 									_elm_lang$core$Native_List.fromArray(
 										[
@@ -240,7 +254,7 @@ var _user$project$Graphicsvg$createSVG = F2(
 												A2(
 													_elm_lang$core$List$intersperse,
 													',',
-													A2(_elm_lang$core$List$map, _user$project$Graphicsvg$pairToString, _p31._0._0._0))))
+													A2(_elm_lang$core$List$map, _user$project$Graphicsvg$pairToString, _p36._0._0._0))))
 										]));
 							}
 						}
@@ -248,17 +262,17 @@ var _user$project$Graphicsvg$createSVG = F2(
 					var clrAttrs = _elm_lang$core$Native_List.fromArray(
 						[
 							_elm_lang$svg$Svg_Attributes$fill(
-							_user$project$Graphicsvg$mkRGB(_p42)),
+							_user$project$Graphicsvg$mkRGB(_p47)),
 							_elm_lang$svg$Svg_Attributes$fillOpacity(
-							_user$project$Graphicsvg$mkAlpha(_p42))
+							_user$project$Graphicsvg$mkAlpha(_p47))
 						]);
-					var _p34 = _user$project$Graphicsvg$coalesce(trans);
-					var a = _p34._0._0._0;
-					var b = _p34._0._0._1;
-					var c = _p34._0._1._0;
-					var d = _p34._0._1._1;
-					var tx = _p34._0._2._0;
-					var ty = _p34._0._2._1;
+					var _p39 = _user$project$Graphicsvg$coalesce(trans);
+					var a = _p39._0._0._0;
+					var b = _p39._0._0._1;
+					var c = _p39._0._1._0;
+					var d = _p39._0._1._1;
+					var tx = _p39._0._2._0;
+					var ty = _p39._0._2._1;
 					var transAttrs = _elm_lang$core$Native_List.fromArray(
 						[
 							_elm_lang$svg$Svg_Attributes$transform(
@@ -282,8 +296,8 @@ var _user$project$Graphicsvg$createSVG = F2(
 						_elm_lang$core$Basics_ops['++'],
 						transAttrs,
 						A2(_elm_lang$core$Basics_ops['++'], clrAttrs, strokeAttrs));
-					var _p35 = _p30._2;
-					switch (_p35.ctor) {
+					var _p40 = _p35._2;
+					switch (_p40.ctor) {
 						case 'Circle':
 							return A2(
 								_elm_lang$svg$Svg$circle,
@@ -294,14 +308,14 @@ var _user$project$Graphicsvg$createSVG = F2(
 											_elm_lang$svg$Svg_Attributes$cx('0'),
 											_elm_lang$svg$Svg_Attributes$cy('0'),
 											_elm_lang$svg$Svg_Attributes$r(
-											_elm_lang$core$Basics$toString(_p35._0))
+											_elm_lang$core$Basics$toString(_p40._0))
 										]),
 									attrs),
 								_elm_lang$core$Native_List.fromArray(
 									[]));
 						case 'Rect':
-							var _p37 = _p35._0;
-							var _p36 = _p35._1;
+							var _p42 = _p40._0;
+							var _p41 = _p40._1;
 							return A2(
 								_elm_lang$svg$Svg$rect,
 								A2(
@@ -309,21 +323,21 @@ var _user$project$Graphicsvg$createSVG = F2(
 									_elm_lang$core$Native_List.fromArray(
 										[
 											_elm_lang$svg$Svg_Attributes$x(
-											_elm_lang$core$Basics$toString((0 - _p37) / 2)),
+											_elm_lang$core$Basics$toString((0 - _p42) / 2)),
 											_elm_lang$svg$Svg_Attributes$y(
-											_elm_lang$core$Basics$toString((0 - _p36) / 2)),
+											_elm_lang$core$Basics$toString((0 - _p41) / 2)),
 											_elm_lang$svg$Svg_Attributes$width(
-											_elm_lang$core$Basics$toString(_p37)),
+											_elm_lang$core$Basics$toString(_p42)),
 											_elm_lang$svg$Svg_Attributes$height(
-											_elm_lang$core$Basics$toString(_p36))
+											_elm_lang$core$Basics$toString(_p41))
 										]),
 									attrs),
 								_elm_lang$core$Native_List.fromArray(
 									[]));
 						case 'RoundRect':
-							var _p40 = _p35._0;
-							var _p39 = _p35._2;
-							var _p38 = _p35._1;
+							var _p45 = _p40._0;
+							var _p44 = _p40._2;
+							var _p43 = _p40._1;
 							return A2(
 								_elm_lang$svg$Svg$rect,
 								A2(
@@ -331,17 +345,17 @@ var _user$project$Graphicsvg$createSVG = F2(
 									_elm_lang$core$Native_List.fromArray(
 										[
 											_elm_lang$svg$Svg_Attributes$x(
-											_elm_lang$core$Basics$toString((0 - _p40) / 2)),
+											_elm_lang$core$Basics$toString((0 - _p45) / 2)),
 											_elm_lang$svg$Svg_Attributes$y(
-											_elm_lang$core$Basics$toString((0 - _p38) / 2)),
+											_elm_lang$core$Basics$toString((0 - _p43) / 2)),
 											_elm_lang$svg$Svg_Attributes$rx(
-											_elm_lang$core$Basics$toString(_p39)),
+											_elm_lang$core$Basics$toString(_p44)),
 											_elm_lang$svg$Svg_Attributes$ry(
-											_elm_lang$core$Basics$toString(_p39)),
+											_elm_lang$core$Basics$toString(_p44)),
 											_elm_lang$svg$Svg_Attributes$width(
-											_elm_lang$core$Basics$toString(_p40)),
+											_elm_lang$core$Basics$toString(_p45)),
 											_elm_lang$svg$Svg_Attributes$height(
-											_elm_lang$core$Basics$toString(_p38))
+											_elm_lang$core$Basics$toString(_p43))
 										]),
 									attrs),
 								_elm_lang$core$Native_List.fromArray(
@@ -356,9 +370,9 @@ var _user$project$Graphicsvg$createSVG = F2(
 											_elm_lang$svg$Svg_Attributes$cx('0'),
 											_elm_lang$svg$Svg_Attributes$cy('0'),
 											_elm_lang$svg$Svg_Attributes$rx(
-											_elm_lang$core$Basics$toString(0.5 * _p35._0)),
+											_elm_lang$core$Basics$toString(0.5 * _p40._0)),
 											_elm_lang$svg$Svg_Attributes$ry(
-											_elm_lang$core$Basics$toString(0.5 * _p35._1))
+											_elm_lang$core$Basics$toString(0.5 * _p40._1))
 										]),
 									attrs),
 								_elm_lang$core$Native_List.fromArray(
@@ -375,7 +389,7 @@ var _user$project$Graphicsvg$createSVG = F2(
 												A2(
 													_elm_lang$core$List$intersperse,
 													' ',
-													A2(_elm_lang$core$List$map, _user$project$Graphicsvg$pairToString, _p35._0))))
+													A2(_elm_lang$core$List$map, _user$project$Graphicsvg$pairToString, _p40._0))))
 										]),
 									attrs),
 								_elm_lang$core$Native_List.fromArray(
@@ -392,7 +406,7 @@ var _user$project$Graphicsvg$createSVG = F2(
 												A2(
 													_elm_lang$core$List$intersperse,
 													' ',
-													A2(_elm_lang$core$List$map, _user$project$Graphicsvg$pairToString, _p35._0))))
+													A2(_elm_lang$core$List$map, _user$project$Graphicsvg$pairToString, _p40._0))))
 										]),
 									attrs),
 								_elm_lang$core$Native_List.fromArray(
@@ -405,30 +419,30 @@ var _user$project$Graphicsvg$createSVG = F2(
 									_elm_lang$core$Native_List.fromArray(
 										[
 											_elm_lang$svg$Svg_Attributes$d(
-											A2(_user$project$Graphicsvg$createBezierString, _p35._0, _p35._1))
+											A2(_user$project$Graphicsvg$createBezierString, _p40._0, _p40._1))
 										]),
 									attrs),
 								_elm_lang$core$Native_List.fromArray(
 									[]));
 						default:
 							var font = function () {
-								var _p41 = _p35._0._6;
-								switch (_p41.ctor) {
+								var _p46 = _p40._0._6;
+								switch (_p46.ctor) {
 									case 'Sansserif':
 										return 'sansserif;';
 									case 'FixedWidth':
 										return 'fixedwidth;';
 									case 'Custom':
-										return A2(_elm_lang$core$Basics_ops['++'], _p41._0, ';');
+										return A2(_elm_lang$core$Basics_ops['++'], _p46._0, ';');
 									default:
 										return 'serif';
 								}
 							}();
-							var select = _elm_lang$core$Basics$not(_p35._0._5) ? '-webkit-touch-callout: none;\n                                                                                  -webkit-user-select: none;\n                                                                                  -khtml-user-select: none;\n                                                                                  -moz-user-select: none;\n                                                                                  -ms-user-select: none;\n                                                                                  user-select: none;' : '';
-							var stri = _p35._0._4 ? 'text-decoration: strikethrough;' : '';
-							var un = _p35._0._3 ? 'text-decoration: underline;' : '';
-							var it = _p35._0._2 ? 'font-style: italic;' : '';
-							var bol = _p35._0._1 ? 'font-weight: bold;' : '';
+							var select = _elm_lang$core$Basics$not(_p40._0._5) ? '-webkit-touch-callout: none;\n                                                                                  -webkit-user-select: none;\n                                                                                  -khtml-user-select: none;\n                                                                                  -moz-user-select: none;\n                                                                                  -ms-user-select: none;\n                                                                                  user-select: none;' : '';
+							var stri = _p40._0._4 ? 'text-decoration: strikethrough;' : '';
+							var un = _p40._0._3 ? 'text-decoration: underline;' : '';
+							var it = _p40._0._2 ? 'font-style: italic;' : '';
+							var bol = _p40._0._1 ? 'font-weight: bold;' : '';
 							var sty = A2(
 								_elm_lang$core$Basics_ops['++'],
 								bol,
@@ -457,7 +471,7 @@ var _user$project$Graphicsvg$createSVG = F2(
 											_elm_lang$core$Basics$toString(0)),
 											_elm_lang$svg$Svg_Attributes$style(sty),
 											_elm_lang$svg$Svg_Attributes$fontSize(
-											_elm_lang$core$Basics$toString(_p35._0._0))
+											_elm_lang$core$Basics$toString(_p40._0._0))
 										]),
 									A2(
 										_elm_lang$core$Basics_ops['++'],
@@ -483,29 +497,29 @@ var _user$project$Graphicsvg$createSVG = F2(
 											]))),
 								_elm_lang$core$Native_List.fromArray(
 									[
-										_elm_lang$svg$Svg$text(_p35._1)
+										_elm_lang$svg$Svg$text(_p40._1)
 									]));
 					}
 				case 'Move':
-					var _v15 = A2(_user$project$Graphicsvg$moveT, trans, _p30._0),
-						_v16 = _p30._1;
-					trans = _v15;
-					shape = _v16;
+					var _v18 = A2(_user$project$Graphicsvg$moveT, trans, _p35._0),
+						_v19 = _p35._1;
+					trans = _v18;
+					shape = _v19;
 					continue createSVG;
 				case 'Rotate':
-					var _v17 = A2(_user$project$Graphicsvg$rotT, trans, _p30._0),
-						_v18 = _p30._1;
-					trans = _v17;
-					shape = _v18;
+					var _v20 = A2(_user$project$Graphicsvg$rotT, trans, _p35._0),
+						_v21 = _p35._1;
+					trans = _v20;
+					shape = _v21;
 					continue createSVG;
 				case 'ScaleXY':
-					var _v19 = A2(
+					var _v22 = A2(
 						_user$project$Graphicsvg$scaleT,
 						trans,
-						{ctor: '_Tuple2', _0: _p30._0, _1: _p30._1}),
-						_v20 = _p30._2;
-					trans = _v19;
-					shape = _v20;
+						{ctor: '_Tuple2', _0: _p35._0, _1: _p35._1}),
+						_v23 = _p35._2;
+					trans = _v22;
+					shape = _v23;
 					continue createSVG;
 				default:
 					return A2(
@@ -516,7 +530,7 @@ var _user$project$Graphicsvg$createSVG = F2(
 							_elm_lang$core$List$map,
 							_user$project$Graphicsvg$createSVG(
 								_user$project$Graphicsvg$coalesce(trans)),
-							_p30._0));
+							_p35._0));
 			}
 		}
 	});
@@ -526,10 +540,7 @@ var _user$project$Graphicsvg$collage = F3(
 			_elm_lang$svg$Svg$svg,
 			_elm_lang$core$Native_List.fromArray(
 				[
-					_elm_lang$svg$Svg_Attributes$width(
-					_elm_lang$core$Basics$toString(w)),
-					_elm_lang$svg$Svg_Attributes$height(
-					_elm_lang$core$Basics$toString(h)),
+					_elm_lang$svg$Svg_Attributes$width('100%'),
 					_elm_lang$svg$Svg_Attributes$viewBox(
 					A2(
 						_elm_lang$core$Basics_ops['++'],
@@ -556,13 +567,21 @@ var _user$project$Graphicsvg$collage = F3(
 				_user$project$Graphicsvg$createSVG(_user$project$Graphicsvg$id),
 				shapes));
 	});
-var _user$project$Graphicsvg$createTopLevelList = function (_p43) {
-	var _p44 = _p43;
+var _user$project$Graphicsvg$createTopLevelList = function (_p48) {
+	var _p49 = _p48;
 	return _elm_lang$core$Native_List.fromArray(
 		[
-			{ctor: '_Tuple2', _0: _p44._0._0, _1: _p44._0._1},
-			{ctor: '_Tuple2', _0: _p44._1._0, _1: _p44._1._1}
+			{ctor: '_Tuple2', _0: _p49._0._0, _1: _p49._0._1},
+			{ctor: '_Tuple2', _0: _p49._1._0, _1: _p49._1._1}
 		]);
+};
+var _user$project$Graphicsvg$curveListHelper = function (_p50) {
+	var _p51 = _p50;
+	return {
+		ctor: '_Tuple2',
+		_0: {ctor: '_Tuple2', _0: _p51._0._0, _1: _p51._0._1},
+		_1: {ctor: '_Tuple2', _0: _p51._1._0, _1: _p51._1._1}
+	};
 };
 var _user$project$Graphicsvg$ptOnCircle = F3(
 	function (r, n, cn) {
@@ -599,7 +618,7 @@ var _user$project$Graphicsvg$line = F2(
 			_elm_lang$core$Native_List.fromArray(
 				[p1, p2]));
 	});
-var _user$project$Graphicsvg$polyline = function (ptList) {
+var _user$project$Graphicsvg$openPolygon = function (ptList) {
 	return _user$project$Graphicsvg$Path(ptList);
 };
 var _user$project$Graphicsvg$Polygon = function (a) {
@@ -632,7 +651,7 @@ var _user$project$Graphicsvg$funnyStar = F3(
 					_elm_lang$core$Basics_ops['++'],
 					A2(
 						_elm_lang$core$List$map,
-						function (_p45) {
+						function (_p52) {
 							return A3(
 								_user$project$Graphicsvg$ptOnCircle,
 								r,
@@ -643,7 +662,7 @@ var _user$project$Graphicsvg$funnyStar = F3(
 											return x * y;
 										}),
 									(frac / 10) * 180,
-									_p45));
+									_p52));
 						},
 						_elm_lang$core$Native_List.range(-10, 10)),
 					_elm_lang$core$Native_List.fromArray(
@@ -665,7 +684,7 @@ var _user$project$Graphicsvg$wedge = F2(
 					_elm_lang$core$Basics_ops['++'],
 					A2(
 						_elm_lang$core$List$map,
-						function (_p46) {
+						function (_p53) {
 							return A2(
 								_user$project$Graphicsvg$wedgeHelper,
 								r,
@@ -675,7 +694,7 @@ var _user$project$Graphicsvg$wedge = F2(
 											return x * y;
 										}),
 									(frac / n) * 180,
-									_p46));
+									_p53));
 						},
 						_elm_lang$core$Native_List.range(0 - n, n)),
 					_elm_lang$core$Native_List.fromArray(
@@ -687,30 +706,13 @@ var _user$project$Graphicsvg$BezierPath = F2(
 	function (a, b) {
 		return {ctor: 'BezierPath', _0: a, _1: b};
 	});
-var _user$project$Graphicsvg$curve = F3(
-	function (_p49, _p48, _p47) {
-		var _p50 = _p49;
-		var _p51 = _p48;
-		var _p52 = _p47;
+var _user$project$Graphicsvg$curve = F2(
+	function (_p54, list) {
+		var _p55 = _p54;
 		return A2(
 			_user$project$Graphicsvg$BezierPath,
-			{ctor: '_Tuple2', _0: _p50._0, _1: _p50._1},
-			_elm_lang$core$Native_List.fromArray(
-				[
-					{
-					ctor: '_Tuple2',
-					_0: {ctor: '_Tuple2', _0: _p51._0, _1: _p51._1},
-					_1: {ctor: '_Tuple2', _0: _p52._0, _1: _p52._1}
-				}
-				]));
-	});
-var _user$project$Graphicsvg$polycurve = F2(
-	function (_p53, list) {
-		var _p54 = _p53;
-		return A2(
-			_user$project$Graphicsvg$BezierPath,
-			{ctor: '_Tuple2', _0: _p54._0, _1: _p54._1},
-			list);
+			{ctor: '_Tuple2', _0: _p55._0, _1: _p55._1},
+			A2(_elm_lang$core$List$map, _user$project$Graphicsvg$curveListHelper, list));
 	});
 var _user$project$Graphicsvg$Oval = F2(
 	function (a, b) {
@@ -763,15 +765,15 @@ var _user$project$Graphicsvg$scale = F2(
 	function (s, shape) {
 		return A3(_user$project$Graphicsvg$ScaleXY, s, s, shape);
 	});
-var _user$project$Graphicsvg$extractShape = function (_p55) {
-	var _p56 = _p55;
-	var s = _user$project$Graphicsvg$f / (_user$project$Graphicsvg$f + _p56._0);
+var _user$project$Graphicsvg$extractShape = function (_p56) {
+	var _p57 = _p56;
+	var s = _user$project$Graphicsvg$f / (_user$project$Graphicsvg$f + _p57._0);
 	return A2(
 		_user$project$Graphicsvg$scale,
 		s,
 		_user$project$Graphicsvg$group(
 			_elm_lang$core$Native_List.fromArray(
-				[_p56._1])));
+				[_p57._1])));
 };
 var _user$project$Graphicsvg$puppetShow = F3(
 	function (w, h, listShapes) {
@@ -779,11 +781,10 @@ var _user$project$Graphicsvg$puppetShow = F3(
 			_user$project$Graphicsvg$collage,
 			w,
 			h,
-			_elm_lang$core$List$reverse(
-				A2(
-					_elm_lang$core$List$map,
-					_user$project$Graphicsvg$extractShape,
-					A2(_elm_lang$core$List$sortBy, _elm_lang$core$Basics$fst, listShapes))));
+			A2(
+				_elm_lang$core$List$map,
+				_user$project$Graphicsvg$extractShape,
+				A2(_elm_lang$core$List$sortWith, _user$project$Graphicsvg$flippedComparison, listShapes)));
 	});
 var _user$project$Graphicsvg$scaleX = F2(
 	function (s, shape) {
@@ -793,6 +794,12 @@ var _user$project$Graphicsvg$scaleY = F2(
 	function (s, shape) {
 		return A3(_user$project$Graphicsvg$ScaleXY, 1, s, shape);
 	});
+var _user$project$Graphicsvg$mirrorX = function (shape) {
+	return A3(_user$project$Graphicsvg$ScaleXY, -1, 1, shape);
+};
+var _user$project$Graphicsvg$mirrorY = function (shape) {
+	return A3(_user$project$Graphicsvg$ScaleXY, 1, -1, shape);
+};
 var _user$project$Graphicsvg$Rotate = F2(
 	function (a, b) {
 		return {ctor: 'Rotate', _0: a, _1: b};
@@ -820,32 +827,32 @@ var _user$project$Graphicsvg$filled = F2(
 var _user$project$Graphicsvg$addOutline = F3(
 	function (style, outlineClr, shape) {
 		var lineStyle = {ctor: '_Tuple2', _0: style, _1: outlineClr};
-		var _p57 = shape;
-		switch (_p57.ctor) {
+		var _p58 = shape;
+		switch (_p58.ctor) {
 			case 'Inked':
 				return A3(
 					_user$project$Graphicsvg$Inked,
-					_p57._0,
+					_p58._0,
 					_elm_lang$core$Maybe$Just(lineStyle),
-					_p57._2);
+					_p58._2);
 			case 'Move':
 				return A2(
 					_user$project$Graphicsvg$Move,
-					_p57._0,
-					A3(_user$project$Graphicsvg$addOutline, style, outlineClr, _p57._1));
+					_p58._0,
+					A3(_user$project$Graphicsvg$addOutline, style, outlineClr, _p58._1));
 			case 'Rotate':
 				return A2(
 					_user$project$Graphicsvg$Rotate,
-					_p57._0,
-					A3(_user$project$Graphicsvg$addOutline, style, outlineClr, _p57._1));
+					_p58._0,
+					A3(_user$project$Graphicsvg$addOutline, style, outlineClr, _p58._1));
 			case 'ScaleXY':
 				return A3(
 					_user$project$Graphicsvg$ScaleXY,
-					_p57._0,
-					_p57._1,
-					A3(_user$project$Graphicsvg$addOutline, style, outlineClr, _p57._2));
+					_p58._0,
+					_p58._1,
+					A3(_user$project$Graphicsvg$addOutline, style, outlineClr, _p58._2));
 			default:
-				return _user$project$Graphicsvg$Group(_p57._0);
+				return _user$project$Graphicsvg$Group(_p58._0);
 		}
 	});
 var _user$project$Graphicsvg$RGBA = F4(
@@ -854,49 +861,49 @@ var _user$project$Graphicsvg$RGBA = F4(
 	});
 var _user$project$Graphicsvg$makeTransparent = F2(
 	function (alpha, shape) {
-		var _p58 = shape;
-		switch (_p58.ctor) {
+		var _p59 = shape;
+		switch (_p59.ctor) {
 			case 'Inked':
-				if (_p58._1.ctor === 'Just') {
+				if (_p59._1.ctor === 'Just') {
 					return A3(
 						_user$project$Graphicsvg$Inked,
-						A4(_user$project$Graphicsvg$RGBA, _p58._0._0, _p58._0._1, _p58._0._2, _p58._0._3 * alpha),
+						A4(_user$project$Graphicsvg$RGBA, _p59._0._0, _p59._0._1, _p59._0._2, _p59._0._3 * alpha),
 						_elm_lang$core$Maybe$Just(
 							{
 								ctor: '_Tuple2',
-								_0: _p58._1._0._0,
-								_1: A4(_user$project$Graphicsvg$RGBA, _p58._1._0._1._0, _p58._1._0._1._1, _p58._1._0._1._2, _p58._1._0._1._3 * alpha)
+								_0: _p59._1._0._0,
+								_1: A4(_user$project$Graphicsvg$RGBA, _p59._1._0._1._0, _p59._1._0._1._1, _p59._1._0._1._2, _p59._1._0._1._3 * alpha)
 							}),
-						_p58._2);
+						_p59._2);
 				} else {
 					return A3(
 						_user$project$Graphicsvg$Inked,
-						A4(_user$project$Graphicsvg$RGBA, _p58._0._0, _p58._0._1, _p58._0._2, _p58._0._3 * alpha),
+						A4(_user$project$Graphicsvg$RGBA, _p59._0._0, _p59._0._1, _p59._0._2, _p59._0._3 * alpha),
 						_elm_lang$core$Maybe$Nothing,
-						_p58._2);
+						_p59._2);
 				}
 			case 'Move':
 				return A2(
 					_user$project$Graphicsvg$Move,
-					_p58._0,
-					A2(_user$project$Graphicsvg$makeTransparent, alpha, _p58._1));
+					_p59._0,
+					A2(_user$project$Graphicsvg$makeTransparent, alpha, _p59._1));
 			case 'Rotate':
 				return A2(
 					_user$project$Graphicsvg$Rotate,
-					_p58._0,
-					A2(_user$project$Graphicsvg$makeTransparent, alpha, _p58._1));
+					_p59._0,
+					A2(_user$project$Graphicsvg$makeTransparent, alpha, _p59._1));
 			case 'ScaleXY':
 				return A3(
 					_user$project$Graphicsvg$ScaleXY,
-					_p58._0,
-					_p58._1,
-					A2(_user$project$Graphicsvg$makeTransparent, alpha, _p58._2));
+					_p59._0,
+					_p59._1,
+					A2(_user$project$Graphicsvg$makeTransparent, alpha, _p59._2));
 			default:
 				return _user$project$Graphicsvg$Group(
 					A2(
 						_elm_lang$core$List$map,
 						_user$project$Graphicsvg$makeTransparent(alpha),
-						_p58._0));
+						_p59._0));
 		}
 	});
 var _user$project$Graphicsvg$rgb = F3(
@@ -987,43 +994,6 @@ var _user$project$Graphicsvg$lightBrown = A4(_user$project$Graphicsvg$RGBA, 233,
 var _user$project$Graphicsvg$brown = A4(_user$project$Graphicsvg$RGBA, 193, 125, 17, 1);
 var _user$project$Graphicsvg$darkBrown = A4(_user$project$Graphicsvg$RGBA, 143, 89, 2, 1);
 var _user$project$Graphicsvg$black = A4(_user$project$Graphicsvg$RGBA, 0, 0, 0, 1);
-var _user$project$Graphicsvg$main6 = A3(
-	_user$project$Graphicsvg$puppetShow,
-	600,
-	600,
-	_elm_lang$core$Native_List.fromArray(
-		[
-			{
-			ctor: '_Tuple2',
-			_0: 1000,
-			_1: _user$project$Graphicsvg$group(
-				_elm_lang$core$Native_List.fromArray(
-					[
-						A2(
-						_user$project$Graphicsvg$move,
-						{ctor: '_Tuple2', _0: -300, _1: 0},
-						A2(
-							_user$project$Graphicsvg$filled,
-							_user$project$Graphicsvg$blue,
-							_user$project$Graphicsvg$circle(50)))
-					]))
-		},
-			{
-			ctor: '_Tuple2',
-			_0: 500,
-			_1: _user$project$Graphicsvg$group(
-				_elm_lang$core$Native_List.fromArray(
-					[
-						A2(
-						_user$project$Graphicsvg$move,
-						{ctor: '_Tuple2', _0: -400, _1: 0},
-						A2(
-							_user$project$Graphicsvg$filled,
-							_user$project$Graphicsvg$black,
-							_user$project$Graphicsvg$circle(50)))
-					]))
-		}
-		]));
 var _user$project$Graphicsvg$white = A4(_user$project$Graphicsvg$RGBA, 255, 255, 255, 1);
 var _user$project$Graphicsvg$lightGrey = A4(_user$project$Graphicsvg$RGBA, 238, 238, 236, 1);
 var _user$project$Graphicsvg$grey = A4(_user$project$Graphicsvg$RGBA, 211, 215, 207, 1);
@@ -1059,17 +1029,17 @@ var _user$project$Graphicsvg$dashed = function (th) {
 var _user$project$Graphicsvg$generateCHLine = F2(
 	function (ar, $int) {
 		var p2 = function () {
-			var _p59 = A2(_elm_lang$core$Array$get, $int + 1, ar);
-			if (_p59.ctor === 'Just') {
-				return _p59._0;
+			var _p60 = A2(_elm_lang$core$Array$get, $int + 1, ar);
+			if (_p60.ctor === 'Just') {
+				return _p60._0;
 			} else {
 				return {ctor: '_Tuple2', _0: 0, _1: 0};
 			}
 		}();
 		var p1 = function () {
-			var _p60 = A2(_elm_lang$core$Array$get, $int, ar);
-			if (_p60.ctor === 'Just') {
-				return _p60._0;
+			var _p61 = A2(_elm_lang$core$Array$get, $int, ar);
+			if (_p61.ctor === 'Just') {
+				return _p61._0;
 			} else {
 				return {ctor: '_Tuple2', _0: 0, _1: 0};
 			}
@@ -1121,176 +1091,81 @@ var _user$project$Graphicsvg$increasing = F3(
 				_elm_lang$core$Native_List.range(s, e)),
 			th);
 	});
-var _user$project$Graphicsvg$main2 = A3(
-	_user$project$Graphicsvg$collage,
-	600,
-	600,
-	_elm_lang$core$Native_List.fromArray(
-		[
-			_user$project$Graphicsvg$group(
-			_elm_lang$core$Native_List.fromArray(
-				[
-					A3(
-					_user$project$Graphicsvg$outlined,
-					A3(_user$project$Graphicsvg$increasing, 1, 10, 5),
-					_user$project$Graphicsvg$black,
-					A2(
-						_user$project$Graphicsvg$line,
-						{ctor: '_Tuple2', _0: -200, _1: 0},
-						{ctor: '_Tuple2', _0: 200, _1: 0}))
-				]))
-		]));
 var _user$project$Graphicsvg$Solid = function (a) {
 	return {ctor: 'Solid', _0: a};
 };
 var _user$project$Graphicsvg$solid = function (th) {
 	return _user$project$Graphicsvg$Solid(th);
 };
-var _user$project$Graphicsvg$main3 = A3(
-	_user$project$Graphicsvg$collage,
-	600,
-	600,
-	_elm_lang$core$Native_List.fromArray(
-		[
-			_user$project$Graphicsvg$group(
-			_elm_lang$core$Native_List.fromArray(
-				[
-					_user$project$Graphicsvg$graphPaper(40),
-					A2(
-					_user$project$Graphicsvg$scale,
-					1,
-					_user$project$Graphicsvg$group(
-						_elm_lang$core$Native_List.fromArray(
-							[
-								A2(
-								_user$project$Graphicsvg$makeTransparent,
-								0.5,
-								_user$project$Graphicsvg$group(
-									_elm_lang$core$Native_List.fromArray(
-										[
-											A3(
-											_user$project$Graphicsvg$addOutline,
-											_user$project$Graphicsvg$solid(5),
-											_user$project$Graphicsvg$blue,
-											A2(
-												_user$project$Graphicsvg$filled,
-												_user$project$Graphicsvg$green,
-												_user$project$Graphicsvg$circle(250))),
-											A2(
-											_user$project$Graphicsvg$move,
-											{ctor: '_Tuple2', _0: 0, _1: -50},
-											_user$project$Graphicsvg$group(
-												_elm_lang$core$Native_List.fromArray(
-													[
-														A2(
-														_user$project$Graphicsvg$makeTransparent,
-														0.5,
-														A3(
-															_user$project$Graphicsvg$addOutline,
-															_user$project$Graphicsvg$solid(5),
-															_user$project$Graphicsvg$black,
-															A2(
-																_user$project$Graphicsvg$move,
-																{ctor: '_Tuple2', _0: -100, _1: 100},
-																A2(
-																	_user$project$Graphicsvg$filled,
-																	_user$project$Graphicsvg$blue,
-																	_user$project$Graphicsvg$circle(50))))),
-														A3(
-														_user$project$Graphicsvg$addOutline,
-														_user$project$Graphicsvg$solid(5),
-														_user$project$Graphicsvg$black,
-														A2(
-															_user$project$Graphicsvg$move,
-															{ctor: '_Tuple2', _0: 100, _1: 100},
-															A2(
-																_user$project$Graphicsvg$filled,
-																_user$project$Graphicsvg$blue,
-																_user$project$Graphicsvg$circle(50)))),
-														A2(
-														_user$project$Graphicsvg$scale,
-														2,
-														A2(
-															_user$project$Graphicsvg$rotate,
-															_user$project$Graphicsvg$degrees(-90),
-															A2(
-																_user$project$Graphicsvg$filled,
-																_user$project$Graphicsvg$red,
-																A2(_user$project$Graphicsvg$wedge, 50, 1))))
-													])))
-										])))
-							])))
-				]))
-		]));
 var _user$project$Graphicsvg$Face = F7(
 	function (a, b, c, d, e, f, g) {
 		return {ctor: 'Face', _0: a, _1: b, _2: c, _3: d, _4: e, _5: f, _6: g};
 	});
 var _user$project$Graphicsvg$size = F2(
 	function (size, stencil) {
-		var _p61 = stencil;
-		if (_p61.ctor === 'Text') {
+		var _p62 = stencil;
+		if (_p62.ctor === 'Text') {
 			return A2(
 				_user$project$Graphicsvg$Text,
-				A7(_user$project$Graphicsvg$Face, size, _p61._0._1, _p61._0._2, _p61._0._3, _p61._0._4, _p61._0._5, _p61._0._6),
-				_p61._1);
+				A7(_user$project$Graphicsvg$Face, size, _p62._0._1, _p62._0._2, _p62._0._3, _p62._0._4, _p62._0._5, _p62._0._6),
+				_p62._1);
 		} else {
-			return _p61;
+			return _p62;
 		}
 	});
 var _user$project$Graphicsvg$bold = function (stencil) {
-	var _p62 = stencil;
-	if (_p62.ctor === 'Text') {
-		return A2(
-			_user$project$Graphicsvg$Text,
-			A7(_user$project$Graphicsvg$Face, _p62._0._0, true, _p62._0._2, _p62._0._3, _p62._0._4, _p62._0._5, _p62._0._6),
-			_p62._1);
-	} else {
-		return _p62;
-	}
-};
-var _user$project$Graphicsvg$italic = function (stencil) {
 	var _p63 = stencil;
 	if (_p63.ctor === 'Text') {
 		return A2(
 			_user$project$Graphicsvg$Text,
-			A7(_user$project$Graphicsvg$Face, _p63._0._0, _p63._0._1, true, _p63._0._3, _p63._0._4, _p63._0._5, _p63._0._6),
+			A7(_user$project$Graphicsvg$Face, _p63._0._0, true, _p63._0._2, _p63._0._3, _p63._0._4, _p63._0._5, _p63._0._6),
 			_p63._1);
 	} else {
 		return _p63;
 	}
 };
-var _user$project$Graphicsvg$underline = function (stencil) {
+var _user$project$Graphicsvg$italic = function (stencil) {
 	var _p64 = stencil;
 	if (_p64.ctor === 'Text') {
 		return A2(
 			_user$project$Graphicsvg$Text,
-			A7(_user$project$Graphicsvg$Face, _p64._0._0, _p64._0._1, _p64._0._2, true, _p64._0._4, _p64._0._5, _p64._0._6),
+			A7(_user$project$Graphicsvg$Face, _p64._0._0, _p64._0._1, true, _p64._0._3, _p64._0._4, _p64._0._5, _p64._0._6),
 			_p64._1);
 	} else {
 		return _p64;
 	}
 };
-var _user$project$Graphicsvg$strikethrough = function (stencil) {
+var _user$project$Graphicsvg$underline = function (stencil) {
 	var _p65 = stencil;
 	if (_p65.ctor === 'Text') {
 		return A2(
 			_user$project$Graphicsvg$Text,
-			A7(_user$project$Graphicsvg$Face, _p65._0._0, _p65._0._1, _p65._0._2, _p65._0._3, true, _p65._0._5, _p65._0._6),
+			A7(_user$project$Graphicsvg$Face, _p65._0._0, _p65._0._1, _p65._0._2, true, _p65._0._4, _p65._0._5, _p65._0._6),
 			_p65._1);
 	} else {
 		return _p65;
 	}
 };
-var _user$project$Graphicsvg$selectable = function (stencil) {
+var _user$project$Graphicsvg$strikethrough = function (stencil) {
 	var _p66 = stencil;
 	if (_p66.ctor === 'Text') {
 		return A2(
 			_user$project$Graphicsvg$Text,
-			A7(_user$project$Graphicsvg$Face, _p66._0._0, _p66._0._1, _p66._0._2, _p66._0._3, _p66._0._4, true, _p66._0._6),
+			A7(_user$project$Graphicsvg$Face, _p66._0._0, _p66._0._1, _p66._0._2, _p66._0._3, true, _p66._0._5, _p66._0._6),
 			_p66._1);
 	} else {
 		return _p66;
+	}
+};
+var _user$project$Graphicsvg$selectable = function (stencil) {
+	var _p67 = stencil;
+	if (_p67.ctor === 'Text') {
+		return A2(
+			_user$project$Graphicsvg$Text,
+			A7(_user$project$Graphicsvg$Face, _p67._0._0, _p67._0._1, _p67._0._2, _p67._0._3, _p67._0._4, true, _p67._0._6),
+			_p67._1);
+	} else {
+		return _p67;
 	}
 };
 var _user$project$Graphicsvg$Custom = function (a) {
@@ -1298,35 +1173,35 @@ var _user$project$Graphicsvg$Custom = function (a) {
 };
 var _user$project$Graphicsvg$customFont = F2(
 	function (fStr, stencil) {
-		var _p67 = stencil;
-		if (_p67.ctor === 'Text') {
+		var _p68 = stencil;
+		if (_p68.ctor === 'Text') {
 			return A2(
 				_user$project$Graphicsvg$Text,
 				A7(
 					_user$project$Graphicsvg$Face,
-					_p67._0._0,
-					_p67._0._1,
-					_p67._0._2,
-					_p67._0._3,
-					_p67._0._4,
-					_p67._0._5,
+					_p68._0._0,
+					_p68._0._1,
+					_p68._0._2,
+					_p68._0._3,
+					_p68._0._4,
+					_p68._0._5,
 					_user$project$Graphicsvg$Custom(fStr)),
-				_p67._1);
+				_p68._1);
 		} else {
-			return _p67;
+			return _p68;
 		}
 	});
 var _user$project$Graphicsvg$FixedWidth = {ctor: 'FixedWidth'};
 var _user$project$Graphicsvg$Sansserif = {ctor: 'Sansserif'};
 var _user$project$Graphicsvg$sansserif = function (stencil) {
-	var _p68 = stencil;
-	if (_p68.ctor === 'Text') {
+	var _p69 = stencil;
+	if (_p69.ctor === 'Text') {
 		return A2(
 			_user$project$Graphicsvg$Text,
-			A7(_user$project$Graphicsvg$Face, _p68._0._0, _p68._0._1, _p68._0._2, _p68._0._3, _p68._0._4, _p68._0._5, _user$project$Graphicsvg$Sansserif),
-			_p68._1);
+			A7(_user$project$Graphicsvg$Face, _p69._0._0, _p69._0._1, _p69._0._2, _p69._0._3, _p69._0._4, _p69._0._5, _user$project$Graphicsvg$Sansserif),
+			_p69._1);
 	} else {
-		return _p68;
+		return _p69;
 	}
 };
 var _user$project$Graphicsvg$Serif = {ctor: 'Serif'};
@@ -1339,9 +1214,9 @@ var _user$project$Graphicsvg$text = function (str) {
 var _user$project$Graphicsvg$generateCHCircle = F2(
 	function (ar, $int) {
 		var p1 = function () {
-			var _p69 = A2(_elm_lang$core$Array$get, $int, ar);
-			if (_p69.ctor === 'Just') {
-				return _p69._0;
+			var _p70 = A2(_elm_lang$core$Array$get, $int, ar);
+			if (_p70.ctor === 'Just') {
+				return _p70._0;
 			} else {
 				return {ctor: '_Tuple2', _0: 0, _1: 0};
 			}
@@ -1379,14 +1254,14 @@ var _user$project$Graphicsvg$generateCHCircles = function (ar) {
 			_elm_lang$core$Native_List.range(0, len - 1)));
 };
 var _user$project$Graphicsvg$generateCurveHelper = F2(
-	function (_p70, list) {
-		var _p71 = _p70;
+	function (_p71, list) {
+		var _p72 = _p71;
 		var l1Array = _elm_lang$core$Array$fromList(
 			A2(
 				_elm_lang$core$Basics_ops['++'],
 				_elm_lang$core$Native_List.fromArray(
 					[
-						{ctor: '_Tuple2', _0: _p71._0, _1: _p71._1}
+						{ctor: '_Tuple2', _0: _p72._0, _1: _p72._1}
 					]),
 				_elm_lang$core$List$concat(
 					A2(_elm_lang$core$List$map, _user$project$Graphicsvg$createTopLevelList, list))));
@@ -1398,43 +1273,47 @@ var _user$project$Graphicsvg$generateCurveHelper = F2(
 				]));
 	});
 var _user$project$Graphicsvg$curveHelper = function (shape) {
-	var _p72 = shape;
-	switch (_p72.ctor) {
+	var _p73 = shape;
+	switch (_p73.ctor) {
 		case 'Inked':
-			if ((_p72._2.ctor === 'BezierPath') && (_p72._2._0.ctor === '_Tuple2')) {
+			if ((_p73._2.ctor === 'BezierPath') && (_p73._2._0.ctor === '_Tuple2')) {
 				return _user$project$Graphicsvg$group(
 					_elm_lang$core$Native_List.fromArray(
 						[
 							shape,
 							A2(
 							_user$project$Graphicsvg$generateCurveHelper,
-							{ctor: '_Tuple2', _0: _p72._2._0._0, _1: _p72._2._0._1},
-							_p72._2._1)
+							{ctor: '_Tuple2', _0: _p73._2._0._0, _1: _p73._2._0._1},
+							_p73._2._1)
 						]));
 			} else {
-				return _p72;
+				return _p73;
 			}
 		case 'Move':
 			return A2(
 				_user$project$Graphicsvg$Move,
-				_p72._0,
-				_user$project$Graphicsvg$curveHelper(_p72._1));
+				_p73._0,
+				_user$project$Graphicsvg$curveHelper(_p73._1));
 		case 'Rotate':
 			return A2(
 				_user$project$Graphicsvg$Rotate,
-				_p72._0,
-				_user$project$Graphicsvg$curveHelper(_p72._1));
+				_p73._0,
+				_user$project$Graphicsvg$curveHelper(_p73._1));
 		case 'ScaleXY':
 			return A3(
 				_user$project$Graphicsvg$ScaleXY,
-				_p72._0,
-				_p72._1,
-				_user$project$Graphicsvg$curveHelper(_p72._2));
+				_p73._0,
+				_p73._1,
+				_user$project$Graphicsvg$curveHelper(_p73._2));
 		default:
 			return _user$project$Graphicsvg$Group(
-				A2(_elm_lang$core$List$map, _user$project$Graphicsvg$curveHelper, _p72._0));
+				A2(_elm_lang$core$List$map, _user$project$Graphicsvg$curveHelper, _p73._0));
 	}
 };
+var _user$project$Graphicsvg$Pull = F2(
+	function (a, b) {
+		return {ctor: 'Pull', _0: a, _1: b};
+	});
 var _user$project$Graphicsvg$main = {
 	main: A3(
 		_user$project$Graphicsvg$collage,
@@ -1453,29 +1332,24 @@ var _user$project$Graphicsvg$main = {
 								_user$project$Graphicsvg$group(
 									_elm_lang$core$Native_List.fromArray(
 										[
-											A2(
-											_user$project$Graphicsvg$move,
-											{ctor: '_Tuple2', _0: -100, _1: 0},
 											A3(
-												_user$project$Graphicsvg$outlined,
-												_user$project$Graphicsvg$solid(2),
-												_user$project$Graphicsvg$black,
-												A2(
-													_user$project$Graphicsvg$polycurve,
-													{ctor: '_Tuple2', _0: 10, _1: 75},
-													_elm_lang$core$Native_List.fromArray(
-														[
-															{
-															ctor: '_Tuple2',
-															_0: {ctor: '_Tuple2', _0: 50, _1: -300},
-															_1: {ctor: '_Tuple2', _0: 100, _1: -65}
-														},
-															{
-															ctor: '_Tuple2',
-															_0: {ctor: '_Tuple2', _0: 175, _1: 300},
-															_1: {ctor: '_Tuple2', _0: 300, _1: 65}
-														}
-														])))),
+											_user$project$Graphicsvg$outlined,
+											_user$project$Graphicsvg$solid(2),
+											_user$project$Graphicsvg$black,
+											A2(
+												_user$project$Graphicsvg$curve,
+												{ctor: '_Tuple2', _0: 10, _1: 75},
+												_elm_lang$core$Native_List.fromArray(
+													[
+														A2(
+														_user$project$Graphicsvg$Pull,
+														{ctor: '_Tuple2', _0: 50, _1: -300},
+														{ctor: '_Tuple2', _0: 100, _1: -65}),
+														A2(
+														_user$project$Graphicsvg$Pull,
+														{ctor: '_Tuple2', _0: 175, _1: 300},
+														{ctor: '_Tuple2', _0: 300, _1: 65})
+													]))),
 											A2(
 											_user$project$Graphicsvg$move,
 											{ctor: '_Tuple2', _0: 100, _1: -200},
@@ -1483,11 +1357,16 @@ var _user$project$Graphicsvg$main = {
 												_user$project$Graphicsvg$outlined,
 												_user$project$Graphicsvg$solid(2),
 												_user$project$Graphicsvg$black,
-												A3(
+												A2(
 													_user$project$Graphicsvg$curve,
 													{ctor: '_Tuple2', _0: 10, _1: 10},
-													{ctor: '_Tuple2', _0: 100, _1: 100},
-													{ctor: '_Tuple2', _0: -40, _1: 40})))
+													_elm_lang$core$Native_List.fromArray(
+														[
+															A2(
+															_user$project$Graphicsvg$Pull,
+															{ctor: '_Tuple2', _0: 100, _1: 100},
+															{ctor: '_Tuple2', _0: -40, _1: 40})
+														]))))
 										]))),
 								A2(
 								_user$project$Graphicsvg$move,
@@ -1498,12 +1377,16 @@ var _user$project$Graphicsvg$main = {
 									_user$project$Graphicsvg$hotPink,
 									A2(
 										_user$project$Graphicsvg$customFont,
-										'Comic Sans MS',
+										'Wingdings',
 										_user$project$Graphicsvg$bold(
 											A2(
 												_user$project$Graphicsvg$size,
 												72,
-												_user$project$Graphicsvg$text('Hello World!'))))))
+												_user$project$Graphicsvg$text('Hello World!')))))),
+								A2(
+								_user$project$Graphicsvg$filled,
+								A3(_user$project$Graphicsvg$rgb, 255, 255, 254),
+								A2(_user$project$Graphicsvg$rect, 100, 200))
 							]))
 					]))
 			]))
