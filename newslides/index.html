@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
-<html><head><meta charset="UTF-8"><title>Main</title><style>html,head,body { padding:0; margin:0; }
-body { font-family: calibri, helvetica, arial, sans-serif; }</style><script type="text/javascript">
+<html><head><meta charset="UTF-8"><title>Main</title><style>html,head,body { padding:0; margin:0;height:100%; }
+body { font-family: calibri, helvetica, arial, sans-serif;}</style><script type="text/javascript">
 (function() {
 'use strict';
 
@@ -9213,6 +9213,25 @@ var _user$project$Graphicsvg$Pull = F2(
 	function (a, b) {
 		return {ctor: 'Pull', _0: a, _1: b};
 	});
+var _user$project$Main$slide5 = function (t) {
+	return _elm_lang$core$Native_List.fromArray(
+		[
+			A2(
+			_user$project$Graphicsvg$move,
+			{ctor: '_Tuple2', _0: -160, _1: 200},
+			A2(
+				_user$project$Graphicsvg$filled,
+				_user$project$Graphicsvg$green,
+				_user$project$Graphicsvg$bold(
+					A2(
+						_user$project$Graphicsvg$size,
+						45,
+						A2(
+							_user$project$Graphicsvg$customFont,
+							'Helvetica',
+							_user$project$Graphicsvg$text('DATA VARIETY'))))))
+		]);
+};
 var _user$project$Main$wing = function (t) {
 	return A2(
 		_user$project$Graphicsvg$filled,
@@ -9626,6 +9645,37 @@ var _user$project$Main$title = _user$project$Graphicsvg$group(
 						30,
 						_user$project$Graphicsvg$text('By Ray Winardi')))))
 		]));
+var _user$project$Main$borders = _elm_lang$core$Native_List.fromArray(
+	[
+		A2(
+		_user$project$Graphicsvg$move,
+		{ctor: '_Tuple2', _0: 3000, _1: 0},
+		A2(
+			_user$project$Graphicsvg$filled,
+			_user$project$Graphicsvg$white,
+			A2(_user$project$Graphicsvg$rect, 5000, 5000))),
+		A2(
+		_user$project$Graphicsvg$move,
+		{ctor: '_Tuple2', _0: -3000, _1: 0},
+		A2(
+			_user$project$Graphicsvg$filled,
+			_user$project$Graphicsvg$white,
+			A2(_user$project$Graphicsvg$rect, 5000, 5000))),
+		A2(
+		_user$project$Graphicsvg$move,
+		{ctor: '_Tuple2', _0: 0, _1: 2750},
+		A2(
+			_user$project$Graphicsvg$filled,
+			_user$project$Graphicsvg$white,
+			A2(_user$project$Graphicsvg$rect, 5000, 5000))),
+		A2(
+		_user$project$Graphicsvg$move,
+		{ctor: '_Tuple2', _0: 0, _1: -2750},
+		A2(
+			_user$project$Graphicsvg$filled,
+			_user$project$Graphicsvg$white,
+			A2(_user$project$Graphicsvg$rect, 5000, 5000)))
+	]);
 var _user$project$Main$accelerate = F2(
 	function (a, model) {
 		return (_elm_lang$core$Native_Utils.cmp(a, 4) > 0) ? _elm_lang$core$Native_Utils.update(
@@ -10220,22 +10270,17 @@ var _user$project$Main$slide1 = function (t) {
 			A2(
 			_user$project$Graphicsvg$scale,
 			1 + A2(_user$project$Main$tranSin, t - 1500, 5),
-			A4(
-				_user$project$Main$vibrate,
-				t,
-				1300,
-				5,
+			A2(
+				_user$project$Graphicsvg$scale,
+				((1 + A2(_user$project$Main$tranSin, t - 530, 0.3)) + A2(_user$project$Main$tranSin, t - 880, 0.3)) + A2(_user$project$Main$tranSin, t - 1230, 0.3),
 				A2(
-					_user$project$Graphicsvg$scale,
-					((1 + A2(_user$project$Main$tranSin, t - 530, 0.3)) + A2(_user$project$Main$tranSin, t - 880, 0.3)) + A2(_user$project$Main$tranSin, t - 1230, 0.3),
-					A2(
-						_user$project$Graphicsvg$move,
-						{
-							ctor: '_Tuple2',
-							_0: -800 + A2(_user$project$Main$trans, t, 1250),
-							_1: 0
-						},
-						_user$project$Main$pacman(t))))),
+					_user$project$Graphicsvg$move,
+					{
+						ctor: '_Tuple2',
+						_0: -800 + A2(_user$project$Main$trans, t, 1250),
+						_1: 0
+					},
+					_user$project$Main$pacman(t)))),
 			A3(
 			_user$project$Main$appear,
 			t,
@@ -10256,7 +10301,7 @@ var _user$project$Main$slide1 = function (t) {
 };
 var _user$project$Main$slides = _elm_lang$core$Array$fromList(
 	_elm_lang$core$Native_List.fromArray(
-		[_user$project$Main$slide1, _user$project$Main$slide2, _user$project$Main$slide3, _user$project$Main$slide4]));
+		[_user$project$Main$slide1, _user$project$Main$slide2, _user$project$Main$slide3, _user$project$Main$slide4, _user$project$Main$slide5]));
 var _user$project$Main$view = function (model) {
 	var slide = A2(
 		_elm_lang$core$Maybe$withDefault,
@@ -10267,7 +10312,10 @@ var _user$project$Main$view = function (model) {
 		_user$project$Graphicsvg$collage,
 		1000,
 		500,
-		slide(t));
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			slide(t),
+			_user$project$Main$borders));
 };
 var _user$project$Main$Model = F4(
 	function (a, b, c, d) {
