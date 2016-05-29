@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html><head><meta charset="UTF-8"><title>Main</title><style>html,head,body { padding:0; margin:0; height: 100%; width: 100%; overflow: hidden;}
+<html><head><meta charset="UTF-8"><title>Main</title><style>html,head,body { padding:0; margin:0; width:100%;height:100%;overflow:hidden}
 body { font-family: calibri, helvetica, arial, sans-serif; }</style><script type="text/javascript">
 (function() {
 'use strict';
@@ -10095,7 +10095,7 @@ var _user$project$Main$barchart = function (t) {
 	var bars = A2(
 		_elm_lang$core$List$map,
 		bar$,
-		_elm_lang$core$Native_List.range(0, 50));
+		_elm_lang$core$Native_List.range(0, 49));
 	return _user$project$Graphics$group(bars);
 };
 var _user$project$Main$slide10 = function (t) {
@@ -10103,7 +10103,7 @@ var _user$project$Main$slide10 = function (t) {
 		[
 			A2(
 			_user$project$Graphics$move,
-			{ctor: '_Tuple2', _0: -485, _1: -120},
+			{ctor: '_Tuple2', _0: -490, _1: -120},
 			_user$project$Main$barchart(t)),
 			A2(
 			_user$project$Graphics$move,
@@ -10215,7 +10215,7 @@ var _user$project$Main$pacman = function (t) {
 				_user$project$Graphics$rotate,
 				_elm_lang$core$Basics$degrees(
 					135 - (_elm_lang$core$Basics$abs(
-						_elm_lang$core$Basics$sin(t / 110)) * 45)),
+						_elm_lang$core$Basics$sin(t / 90)) * 45)),
 				A2(
 					_user$project$Graphics$filled,
 					_user$project$Graphics$yellow,
@@ -10224,7 +10224,7 @@ var _user$project$Main$pacman = function (t) {
 				_user$project$Graphics$rotate,
 				_elm_lang$core$Basics$degrees(
 					-135 + (_elm_lang$core$Basics$abs(
-						_elm_lang$core$Basics$sin(t / 110)) * 45)),
+						_elm_lang$core$Basics$sin(t / 90)) * 45)),
 				A2(
 					_user$project$Graphics$filled,
 					_user$project$Graphics$yellow,
@@ -11628,7 +11628,7 @@ var _user$project$Main$foodline = function (t) {
 				A3(
 				_user$project$Main$disappear,
 				t,
-				550,
+				400,
 				A2(
 					_user$project$Graphics$move,
 					{ctor: '_Tuple2', _0: -420, _1: 0},
@@ -11636,19 +11636,31 @@ var _user$project$Main$foodline = function (t) {
 				A3(
 				_user$project$Main$disappear,
 				t,
-				900,
+				700,
 				A2(
 					_user$project$Graphics$move,
-					{ctor: '_Tuple2', _0: -260, _1: 0},
+					{ctor: '_Tuple2', _0: -270, _1: 0},
 					_user$project$Main$youtube)),
 				A3(
 				_user$project$Main$disappear,
 				t,
-				1250,
+				1000,
 				A2(
 					_user$project$Graphics$move,
-					{ctor: '_Tuple2', _0: -100, _1: 0},
-					_user$project$Main$linkedin))
+					{ctor: '_Tuple2', _0: -110, _1: 0},
+					_user$project$Main$linkedin)),
+				A3(
+				_user$project$Main$disappear,
+				t,
+				1300,
+				A2(
+					_user$project$Graphics$move,
+					{ctor: '_Tuple2', _0: 20, _1: -20},
+					A2(
+						_user$project$Graphics$scale,
+						0.7,
+						_user$project$Main$tweet(
+							A3(_user$project$Graphics$rgb, 94, 169, 208)))))
 			]));
 };
 var _user$project$Main$slide1 = function (t) {
@@ -11657,12 +11669,12 @@ var _user$project$Main$slide1 = function (t) {
 			_user$project$Main$foodline(t),
 			A2(
 			_user$project$Graphics$scale,
-			(((1 + A2(_user$project$Main$tranSin, t - 500, 0.2)) + A2(_user$project$Main$tranSin, t - 850, 0.2)) + A2(_user$project$Main$tranSin, t - 1200, 0.2)) + A2(_user$project$Main$tranSin, t - 1400, 5),
+			((((1 + A2(_user$project$Main$tranSin, t - 400, 0.3)) + A2(_user$project$Main$tranSin, t - 700, 0.3)) + A2(_user$project$Main$tranSin, t - 1000, 0.3)) + A2(_user$project$Main$tranSin, t - 1300, 0.3)) + A2(_user$project$Main$tranSin, t - 1400, 5),
 			A2(
 				_user$project$Graphics$move,
 				{
 					ctor: '_Tuple2',
-					_0: -700 + A2(_user$project$Main$trans, t / 2, 700),
+					_0: -650 + A2(_user$project$Main$trans, t / 2, 700),
 					_1: 0
 				},
 				_user$project$Main$pacman(t))),
