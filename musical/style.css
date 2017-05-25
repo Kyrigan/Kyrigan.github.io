@@ -1,10 +1,22 @@
 @charset "UTF-8";
+@font-face {
+    font-family:"Decotech TL";
+    src:url(decotech_tl.ttf);
+}
 
 body {
     font-family: 'Open Sans', sans-serif;
     color:#fffdfa;
     font-size:16pt;
     background: #000000;
+}
+
+h4 {
+    font-family: 'Decotech TL';
+    font-size:80pt;
+    line-height:0pt;
+    letter-spacing: 12px;
+    color: #fff;
 }
 
 h1 {
