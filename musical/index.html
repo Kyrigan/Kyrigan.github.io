@@ -1,0 +1,159 @@
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>McMaster Engineering Musical</title>
+    <meta name="description" content="Ray is an undergraduate Computer Science student at McMaster University." />
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<nav id="top">
+    <ul>
+        <li><a href="#history">History</a></li>
+        <li><a href="#plot">The Plot</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li><a href="#sponsors">Sponsors</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+    </ul>
+</nav>
+
+<div id ="splash" class="section">
+	<div id ="splashtext">
+		<h1>McMaster Engineering Musical</h1>
+		<a href="#tickets"><div class="button">Get your tickets here!</div></a>
+	</div>
+</div>
+
+<div id="history" class="section">
+	<h1>Who are we?</h1>
+	<p>Each year, a group of ambitious engineering students gets together to put on a singing and dancing extravaganza. Complete with a full band and our unique interpretations of popular songs, the musical is an annual tradition in McMaster Engineering.</p>
+	<p>Beginning in September, auditions are held and a cast is chosen. Week by week, the show is put together with students running the whole thing, from writing songs, to creating the script, building sets and playing music. And they have a great time while doing it.</p>
+	<p>The show is performed in a three day run each year; a Thursday, Friday, and Saturday run in mid-March. We look forward to seeing you then!</p>
+	<a href="http://google.com"><div class="button">Click here to read more about us.</div></a>
+</div>
+
+<div id="plot" class="section">
+	<h1>This Year's Story - Dr. Wonka</h1>
+	<p>It’s her final year at McMaster, and Charlie just can’t seem to get her grades up. Despite tough classes and a lazy capstone group, Charlie makes the best of her time in Engineering by working hard and helping out friends. When the mysterious professor, Dr. Wonka announces an academic contest for a tour of his esteemed technology lab, Charlie finds new motivation to achieve for a chance to meet her hero. By a sweet stroke of luck, she and her best friend Jean are given the opportunity of a lifetime to see inside the lab with four other eccentric whiz kids…but will Dr. Wonka’s lab be as delightful as imagined, or will the tour take a sour turn for the students?</p>
+</div>
+
+<div id="tickets" class="section">
+	<h1>Buy Your Tickets!</h1>
+	<p>Grab your tickets online using PayPal™ or find us selling them in the lobby of JHE Building.</p>
+	
+	<table class="tickets">
+		<tr>
+			<th colspan="3" style="background:#dfbe00"><h2>Students</h2></th>
+		</tr>
+
+		<tr>
+			<td style="background:#df4545;"><h2>$12</h2>Thursday</td>
+			<td style="background:#56df56;"><h2>$12</h2>Friday</td>
+			<td style="background:#569aef;"><h2>$12</h2>Saturday</td>
+		</tr>
+	</table>
+	
+	<table class="tickets">
+		<tr>
+			<th colspan="3" style="background:#af349f"><h2>Non-students</h2></th>
+		</tr>
+
+		<tr>
+			<td style="background:#df4545;"><h2>$15</h2>Thursday</td>
+			<td style="background:#56df56;"><h2>$15</h2>Friday</td>
+			<td style="background:#569aef;"><h2>$15</h2>Saturday</td>
+		</tr>
+	</table>
+
+</div>
+
+<div id="videos" class="section">
+	<h1>Watch Us In Action!</h1>
+	<iframe width="884" height="555" src="https://www.youtube.com/embed/mvKAGZqCLRI?ecver=1" frameborder="0" allowfullscreen></iframe>
+    <iframe width="884" height="555" src="https://www.youtube.com/embed/laR7QWvIPqU?list=PLblR3ZocPfy2YZuj6vIyTfzD4Q93GKv4G?ecver=1" frameborder="0" allowfullscreen></iframe>
+    Check out some of our videos on <b><a href="http://www.youtube.com/channel/UCdzV8Tmp8M-tE-rDk9XjXUA" target="_blank">YouTube</a></b> and subscribe!
+</div>
+
+<div id="sponsors" class="section">
+	<h1>Thank you to all our previous sponsors!</h1>
+	<p>Please do check the 'Contact Us' section (just scroll down) to contact us about sponsorships!</p>
+</div>
+
+<div id="contact" class="section">
+	<h1>Want to get in touch with us?</h1>
+	<p style="text-align:left">
+        For questions about tickets, sponsorship, or about the musical in general:
+        <br><a href="mailto:macengmusical@gmail.com">macengmusical@gmail.com</a>
+    </p>   
+        
+    <p style="text-align:left">
+        For questions about/to the band:
+        <br><a href="mailto:mac.eng.musical.band@gmail.com"> mac.eng.musical.band@gmail.com</a>
+    </p>
+        
+    <p style="text-align:left">
+        For questions about/to the stage crew:
+        <br><a href="mailto:teamdeathtrap@hotmail.com">teamdeathtrap@hotmail.com</a>
+    </p>
+
+    <p>
+    	You can also follow us on Facebook to keep up with all our news updates!
+    </p>
+</div>
+
+</body>
+
+<!-- Code for the smooth scrolling -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    $(function() {
+
+        // ScrollTo
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+
+    });
+
+</script>
+
+<div class="bottomMenu">
+	<a href="#top"><div class="button">Click here to return to the top.</div></a>
+</div>
+
+<!-- Code for the bottom menu. -->
+<script>
+$(document).scroll(function () {
+    var y = $(this).scrollTop();
+    if (y > 800) {
+        $('.bottomMenu').fadeIn();
+    } else {
+        $('.bottomMenu').fadeOut();
+    }
+
+});
+</script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+

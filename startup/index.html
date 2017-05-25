@@ -1,4 +1,127 @@
 <html>
-	<title>Homepage</title>
-	Hello World!
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Net Enthusiasts</title>
+    <meta name="description" content="Ray is an undergraduate Computer Science student at McMaster University." />
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#product">The Product</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+    </ul>
+</nav>
+
+<div id ="splash" class="section">
+	<div id ="splashtext">
+		<h1>Introducing the MemeStick™</h1>
+		Flood any computer device on the planet with PNGs of internet humour.
+	</div>
+</div>
+
+<div id="about" class="section">
+	<h1>Who are we?</h1>
+	<p>We are Net Enthusiasts, a group of internet lovers who take delight in the 'dankness' of the world wide web, and want to spread our memes
+	everywhere we can. Our ideology revolves around humour, hardwork and having a wonderful time brightening someone else's day.</p>
+	<table class="staff">
+		<tr>
+			<td><img class="img-circle" src="wut.jpg"></td>
+			<td><img class="img-circle" src="wut.jpg"></td>
+			<td><img class="img-circle" src="wut.jpg"></td>
+			<td><img class="img-circle" src="wut.jpg"></td>
+		</tr>
+		<tr>
+			<td>CEO - Ray Winardi</td>
+			<td>CTO - Ray Winardi</td>
+			<td>CFO - Ray Winardi</td>
+			<td>Sales Director - Ray Winardi</td>
+		</tr>
+	</table>
+</div>
+
+<div id="product" class="section">
+	<h1>So what is it?</h1>
+	<p>On the surface, the MemeStick™ looks like an average flash drive, but it contains several powerful programs which can
+	quickly overwhelm a storage drive with gigabytes upon terabytes of memes. 
+	</p>
+	<p>The MemeStick™ has different settings, depending on how much you wish to troll your target. You can either have it replace
+	all their images with your top quality internet humour, or have the stick completely uninstall the target device's operating
+	system, only to replace it with our custom-made MemeOS™ built off the Unix platform. 
+	</p>
+	<p>
+	Note that we at Net Enthusiasts are not responsible for how you choose to use our software, please read our disclaimer for
+	further information.
+	</p>
+
+	<table class="prices">
+		<tr>
+			<td style="background:#df4545;"><h2>$30</h2>Standard</td>
+			<td style="background:#56df56;"><h2>$55</h2>Premium</td>
+			<td style="background:#569aef;"><h2>$80</h2>Enterprise</td>
+			<td style="background:#FFD700;"><h2>$100</h2>Memelord</td>
+		</tr>
+	</table>
+	
+</div>
+
+<div id="work" class="section">
+	<h1>We provide opportunities.</h1>
+	<p>We are a small, growing startup and we are always looking for talented programmers with a great sense of humour.
+	We are looking for individuals with prior experience in web development, functional programming, network
+	security and machine learning.</p>
+	<p>If you are looking to apply, please e-mail us at our corporate address (see Contacts below) and we will
+	communicate further directions.
+	</p>
+	
+</div>
+
+<div id="contact" class="section">
+	<h1>Contact Us</h1>
+	<p>Hiring Manager - Dicky Vuarte - dvuarte@memelord.ca</p>
+	<p>"We only accept e-mails where words are separated by emoji." - Dicky, February 2017 </p>
+	
+</div>
+
+</body>
+
+<!-- Code for the smooth scrolling -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    $(function() {
+
+        // ScrollTo
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+
+    });
+
+</script>
+
 </html>
+
+
+
+
+
+
+
+
+
+
+
