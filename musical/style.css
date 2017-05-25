@@ -11,6 +11,11 @@ body {
     background: #000000;
 }
 
+#body {
+    width:1500px;
+    margin: 0 auto;
+}
+
 h4 {
     font-family: 'Decotech TL';
     font-size:80pt;
@@ -116,7 +121,7 @@ nav ul li a:hover {
 
 
 .section {
-    height:100%;
+    min-height:100%;
     width:100%;
     box-sizing:border-box;
     border: 40px solid transparent;
@@ -138,6 +143,9 @@ nav ul li a:hover {
 
 #splash {
     text-align:center;
+    background-image:url(img/splash.jpg);
+    background-repeat:no-repeat;
+    background-position: center; 
 }
 
 #splashtext {
